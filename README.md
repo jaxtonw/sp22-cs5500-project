@@ -5,5 +5,5 @@
 ## Authors
 *   Sander Burton
 *   Max Clark
-*   James Luevano
+*   James Sanford
 *   Jaxton Winder
