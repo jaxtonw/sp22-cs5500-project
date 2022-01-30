@@ -6,5 +6,5 @@
 *   TODO: Double check these names are all spelled right, just to test out Jira
 *   Sander Burton
 *   Max Clark
-*   James Sanford
+*   James Sanford-Luevano
 *   Jaxton Winder
