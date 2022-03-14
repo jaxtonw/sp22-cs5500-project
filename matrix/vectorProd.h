@@ -3,6 +3,6 @@
 
 #include "mpi.h"
 
-double *vectorProduct(double *A, int n, int m, double *x, double *y, MPI_Comm comm);
+double *vectorProduct(double *A, int32_t n, int32_t m, double *x, double *y, MPI_Comm comm);
 
 #endif
