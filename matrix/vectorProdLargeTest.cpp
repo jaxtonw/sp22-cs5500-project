@@ -38,10 +38,7 @@ int main(int argc, char **argv)
 
     auto result = vectorProduct(B, ROWS, COLUMNS, y, MCW);
 
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
-
-
+    auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
 
     if (rank == 0)
     {

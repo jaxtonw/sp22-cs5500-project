@@ -53,9 +53,29 @@ int main(int argc, char **argv)
     if (rank == 0)
     {
         cout << "time (microseconds): " << duration.count() << endl;
-    }
+        printVector(result, m);
 
-    printVector(result, n);
+        /* valid result 
+        [
+        650
+        651
+        652
+        653
+        654
+        655
+        656
+        657
+        658
+        659
+        660
+        661
+        662
+        663
+        664
+        665
+        ]
+        */
+    }
 
     MPI_Finalize();
 }

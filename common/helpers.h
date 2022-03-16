@@ -4,5 +4,6 @@
 #include <iostream>
 
 void printVector(double vec[], int size);
+void printMatrix2D(double *matrix, int m, int n);
 
 #endif
