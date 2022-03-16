@@ -7,7 +7,7 @@
 void printVector(double vec[], int size) {
     std::cout << "[\n";
     for (int i = 0; i < size; i++) {
-        std::cout << " " << vec[i] << std::endl; 
+        std::cout << " " << vec[i] << std::endl;
     }
     std::cout << "]" << std::endl;
 }
@@ -28,14 +28,14 @@ int main(int argc, char **argv)
     };
 
     double x[] = { // 3x1
-        1.0, 
-        2.0, 
+        1.0,
+        2.0,
         3.0
     };
 
     // TODO: Make n,m dimension usage consistent in vectorProd
     double* result = vectorProduct(A, n, m, x, MCW);
-    
+
     if (rank == 0) {
         printVector(result, m);
     }
