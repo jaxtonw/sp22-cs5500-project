@@ -118,17 +118,6 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
         }
     }
 
-    // TODO: Find a nice way to save/print this stuff, maybe in main?
-    // if (rank == 0)
-    // {
-    //     //cout << "Result: " << endl;
-
-    //     for (size_t i = 0; i < m; i++)
-    //     {
-    //         cout << y[i] << endl;
-    //     }
-    // }
-
     //cout << "rank: " << rank << " exiting" << endl;
 
     return y;

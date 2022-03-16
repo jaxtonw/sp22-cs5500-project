@@ -36,13 +36,17 @@ int main(int argc, char **argv)
 
     auto start = high_resolution_clock::now();
 
-    vectorProduct(B, ROWS, COLUMNS, y, MCW);
+    auto result = vectorProduct(B, ROWS, COLUMNS, y, MCW);
 
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<microseconds>(stop - start);
 
+
+
     if (rank == 0)
     {
+        // cout << "Result is ";
+        // printVector(result, COLUMNS);
         cout << "time (microseconds): " << duration.count() << endl;
     }
 

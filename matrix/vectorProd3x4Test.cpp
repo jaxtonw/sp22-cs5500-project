@@ -1,4 +1,5 @@
 #include "./vectorProd.h"
+#include "../common/helpers.h"
 #include <mpi.h>
 
 #define MCW MPI_COMM_WORLD
@@ -17,7 +18,9 @@ int main(int argc, char **argv)
     double x[] = {
         1.0, 2.0, 3.0, 4.0};
 
-    vectorProduct(A, m, n, x, MCW); 
+    double *result = vectorProduct(A, m, n, x, MCW);
+
+    printVector(result, n);
 
     MPI_Finalize();
 }
