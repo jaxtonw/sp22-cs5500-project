@@ -13,12 +13,12 @@ int main(int argc, char **argv)
         7.0, 8.0, 9.0,
         10.0, 11.0, 12.0};
 
-    int n = 3;
     int m = 4;
+    int n = 3;
     double x[] = {
         1.0, 2.0, 3.0};
 
-    vectorProduct(A, n, m, x, MCW); 
+    vectorProduct(A, m, n, x, MCW); 
 
     MPI_Finalize();
 }
