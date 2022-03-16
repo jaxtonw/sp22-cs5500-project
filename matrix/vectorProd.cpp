@@ -104,7 +104,7 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
             vecBuf[0] = recBuf;
             vecBuf[1] = rank;
             vecBuf[2] = 0;
-            for (size_t i = 0; i < m; i++)
+            for (size_t i = 0; i < m; i++) // should be column count (n) instead of row count (m), I think?
             {
                 vecBuf[2] += x[i] * A[recBuf * m + i];
             }

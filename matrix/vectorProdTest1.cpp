@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
     int m = 4; // rows
     int n = 3; // columns
-    double A[] = { // 3x4 matrix
+    double A[] = { // 4x3 matrix
         1.0, 2.0, 3.0,
         4.0, 5.0, 6.0,
         7.0, 8.0, 9.0,
@@ -31,13 +31,15 @@ int main(int argc, char **argv)
         1.0,
         2.0,
         3.0
+        // 0.0, kind of, because things are called incorrectly
     };
 
-    // TODO: Make n,m dimension usage consistent in vectorProd
     double* result = vectorProduct(A, n, m, x, MCW);
-
+    // With this call where rows = n = 3, columns = m = 4, things get... weird
+    // it kind of treats x as having 4 columns, where x[3] == 0
+    
     if (rank == 0) {
-        printVector(result, m);
+        printVector(result, n);
     }
 
     MPI_Finalize();
