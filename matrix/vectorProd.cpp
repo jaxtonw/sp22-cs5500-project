@@ -30,7 +30,7 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
         MPI_Status status;
         size_t returnCounter = 0;
         size_t curIdx = 0;
-        y = new double[m];
+        y = new double[m] {0};
 
         while (1)
         {
@@ -41,8 +41,10 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
             {
                 for (size_t i = 1; i < commSize; i++)
                 {
+                    // don't overrun work if m < size
                     if (curIdx < m)
                     {
+                        //cout << "sending row: " << curIdx << ", to rank: " << i << endl;
                         MPI_Send(&curIdx, 1, MPI_INT32_T, i, 0, comm);
                         curIdx++;
                     }
@@ -52,6 +54,7 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
             // Kill process when calculated
             if (returnCounter >= m)
             {
+                //cout << "returnCounter: " << returnCounter << endl;
                 //cout << "sending poison pill" << endl;
                 sendBuf = POISON_PILL;
                 for (size_t i = 1; i < commSize; i++)
@@ -80,6 +83,7 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
 
                     if (curIdx < m)
                     {
+                        //cout << "sending row: " << curIdx << ", to rank: " << recRank << endl;
                         MPI_Send(&curIdx, 1, MPI_INT32_T, recRank, 0, comm);
                         curIdx++;
                     }
@@ -104,24 +108,15 @@ double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm)
             vecBuf[0] = recBuf;
             vecBuf[1] = rank;
             vecBuf[2] = 0;
-            for (size_t i = 0; i < m; i++) // should be column count (n) instead of row count (m), I think?
+
+            for (size_t i = 0; i < n; i++)
             {
-                vecBuf[2] += x[i] * A[recBuf * m + i];
+                vecBuf[2] += x[i] * A[recBuf * n + i];
             }
 
             MPI_Send(&vecBuf, 3, MPI_DOUBLE, 0, 0, comm);
         }
     }
-
-    // if (rank == 0)
-    // {
-    //     cout << "Result: " << endl;
-
-    //     for (size_t i = 0; i < m; i++)
-    //     {
-    //         cout << y[i] << endl;
-    //     }
-    // }
 
     //cout << "rank: " << rank << " exiting" << endl;
 

@@ -11,14 +11,6 @@
 using namespace std::chrono;
 using namespace std;
 
-void printVector(double* vec, int size) {
-    cout << "[\n";
-    for (int i = 0; i < size; i++) {
-        cout << " " << vec[i] << endl;
-    }
-    cout << "]" << endl;
-}
-
 int main(int argc, char **argv)
 {
     MPI_Init(&argc, &argv);
@@ -46,10 +38,7 @@ int main(int argc, char **argv)
 
     auto result = vectorProduct(B, ROWS, COLUMNS, y, MCW);
 
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
-
-
+    auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
 
     if (rank == 0)
     {
