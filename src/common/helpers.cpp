@@ -1,11 +1,19 @@
 #include "./helpers.h"
 
 void printVector(double vec[], int size) {
-    std::cout << "[" << std::endl;;
+    std::cout << "[" << std::endl;
     for (int i = 0; i < size; i++) {
         std::cout << " " << vec[i] << std::endl;
     }
     std::cout << "]" << std::endl;
+}
+
+void printVectorHorizontal(double vec[], int size) {
+    std::cout << "[";
+    for (int i = 0; i < size; i++) {
+        std::cout << " " << vec[i];
+    }
+    std::cout << " ]" << std::endl;
 }
 
 void printMatrix2D(double *A, int m, int n) {
