@@ -1,30 +1,28 @@
-#include "../../src/matrix/vectorProd.h"
 #include "../../src/common/helpers.h"
-#include <algorithm>
 #include <chrono>
 #include <iostream>
-
-#define COLUMNS 512
-#define ROWS COLUMNS
 
 using namespace std::chrono;
 using namespace std;
 
 int main(int argc, char **argv)
 {
-    double A[ROWS * COLUMNS];
-    double x[COLUMNS];
-    double y[ROWS];
+    
+    const size_t COLUMNS = 2400;
+    const size_t ROWS = COLUMNS;
+    const size_t TOTAL = COLUMNS * ROWS;
 
-    for (size_t i = 0; i < ROWS * COLUMNS; i++)
+    double *B = new double[TOTAL];
+    double *y = new double[COLUMNS];
+
+    for (size_t i = 0; i < TOTAL; i++)
     {
-        A[i] = (double)i;
+        B[i] = (double)i;
         if (i < COLUMNS)
         {
-            x[i] = (double)i;
+            y[i] = (double)i;
         }
     }
-
     // random_shuffle(A, A + ROWS * COLUMNS);
     // random_shuffle(x, x + COLUMNS);
 
@@ -35,7 +33,7 @@ int main(int argc, char **argv)
         y[i] = 0;
         for (size_t j = 0; j < COLUMNS; j++)
         {
-            y[i] += A[i * COLUMNS + j] * x[j];
+            y[i] += B[i * COLUMNS + j] * y[j];
         }
     }
 
