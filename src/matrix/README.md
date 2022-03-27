@@ -8,6 +8,4 @@ This folder contains linear algebra operations related to matrices
 
 ## Running Tests
 
-- `mpicxx src/common/*elpers.cpp src/matrix/vectorProd.cpp src/matrix/<test-file>.cpp`
-  - Produces a.out in root directory
-- `mpirun -np <cores> $PWD/a.out`
+In the root directory, run `make runtests`
