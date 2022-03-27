@@ -17,13 +17,13 @@ CXX := mpicxx
 
 # build test files
 $(TEST_BUILD_DIR)/%.cpp.o: %.cpp
-	$(MKDIR_P) $(dir $@)
-	$(CXX) $(SRCS) $< -o $@
+	@$(MKDIR_P) $(dir $@)
+	$(CXX) -DMAKE_TEST $(SRCS) $< -o $@
 
 
 $(TEST_RESULT_DIR)/%.cpp.o.result: %.cpp.o
 #	@echo "TEST_RESULTS: ${TEST_RESULTS}"
-	$(MKDIR_P) $(dir $(@:$(TEST_RESULT_DIR)/$(TEST_BUILD_DIR)/%=$(TEST_RESULT_DIR)/%))
+	@$(MKDIR_P) $(dir $(@:$(TEST_RESULT_DIR)/$(TEST_BUILD_DIR)/%=$(TEST_RESULT_DIR)/%))
 #	@echo "$<"
 #	@echo "$@"
 	mpirun -np 4 $< > $(@:$(TEST_RESULT_DIR)/$(TEST_BUILD_DIR)/%=$(TEST_RESULT_DIR)/%)
