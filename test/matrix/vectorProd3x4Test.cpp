@@ -1,5 +1,5 @@
-#include "./vectorProd.h"
-#include "../common/helpers.h"
+#include "../../src/matrix/vectorProd.h"
+#include "../../src/common/helpers.h"
 #include <mpi.h>
 
 #define MCW MPI_COMM_WORLD
@@ -42,4 +42,5 @@ int main(int argc, char **argv)
     }
 
     MPI_Finalize();
+
 }

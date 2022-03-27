@@ -1,4 +1,5 @@
-#include "./vectorProd.h"
+#include "../../src/matrix/vectorProd.h"
+#include "../../src/common/helpers.h"
 #include <mpi.h>
 #include <algorithm>
 #include <chrono>

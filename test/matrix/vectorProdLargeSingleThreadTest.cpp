@@ -1,4 +1,5 @@
-#include "../common/helpers.h"
+#include "../../src/matrix/vectorProd.h"
+#include "../../src/common/helpers.h"
 #include <algorithm>
 #include <chrono>
 #include <iostream>

@@ -5,3 +5,7 @@
 *.o
 
 .vscode
+
+build/
+testbuild/
+testrestult/

@@ -1,6 +1,6 @@
 #include "./helpers.h"
 
-void printVector(double vec[], int size) {
+void printVector(double *vec, int size) {
     std::cout << "[" << std::endl;
     for (int i = 0; i < size; i++) {
         std::cout << " " << vec[i] << std::endl;
@@ -8,7 +8,15 @@ void printVector(double vec[], int size) {
     std::cout << "]" << std::endl;
 }
 
-void printVectorHorizontal(double vec[], int size) {
+void printVector(std::vector<double> vec) {
+    std::cout << "[\n";
+    for (double item : vec) {
+        std::cout << "  " << item << std::endl;
+    }
+    std::cout << "]" << std::endl;
+}
+
+void printVectorHorizontal(double *vec, int size) {
     std::cout << "[";
     for (int i = 0; i < size; i++) {
         std::cout << " " << vec[i];

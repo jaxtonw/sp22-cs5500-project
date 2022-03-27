@@ -1,5 +1,5 @@
-#include "./dotProd.h"
-#include "../common/helpers.h"
+#include "../../src/vector/dotProd.h"
+#include "../../src/common/helpers.h"
 #include <mpi.h>
 #include <iostream>
 #define MCW MPI_COMM_WORLD
