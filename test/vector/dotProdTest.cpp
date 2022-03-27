@@ -68,9 +68,9 @@ int main(int argc, char **argv)
     
     double start = MPI_Wtime();
 	double result = dotProduct(g, h, length, MCW);
-    if (!rank) {
-        cout << "Computed dot product with " << length << " values in each vector in " << MPI_Wtime() - start << " seconds!" << endl;
-    }
+    // if (!rank) {
+    //     cout << "Computed dot product with " << length << " values in each vector in " << MPI_Wtime() - start << " seconds!" << endl;
+    // }
 
     MPI_Finalize();
 }
