@@ -8,16 +8,8 @@
 
 ## Test Structure
 
-- Tests should follow the folder structure as ./src
-- All tests are run with `mpirun -np 4`
-  - If single threaded, include MPI but wrap function with `if (rank == 0)`
-- Use the define `MAKE_TEST` to add/remove automated test code
-  - For example, to exclude processing time output from automated test:
-    ```c
-    #ifndef MAKE_TEST
-        cout << duration.count() << "us" << endl;
-    #endif
-    ```
+Tests should follow the folder structure as ./src
+
 ## Results File
 
 Each *.cpp requires a file called *.cpp.o.result. This result file will be compared against the output from the test run. The make function quits upon the first result file that does not match.
@@ -60,3 +52,7 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
+
+### Excluding Tests
+
+To exclude a test, use the `.c++` file type.

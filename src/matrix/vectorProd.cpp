@@ -12,7 +12,7 @@ void checkSendNext(uint64_t *currentIdx, uint64_t m, uint16_t rank, MPI_Comm com
 }
 
 /**
- * @brief 2D Matrix dot product with vector
+ * @brief 2D Matrix dot product with vector, fastest
  *
  * @param A The main matrix
  * @param m The row count of the matrix
@@ -131,7 +131,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
  * @param comm The current MPI_Comm
  * @return The shared_ptr pointer to the result
  */
-double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
+double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
     int rank, commSize, sendBuf, flag = 0;
 
@@ -152,7 +152,10 @@ double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm com
 
         while (1)
         {
-            MPI_Irecv(&vecBuf, 1, vectorCalcType, MPI_ANY_SOURCE, 0, comm, &request);
+            MPI_Recv(&vecBuf, 1, vectorCalcType, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
+
+            returnCounter++;
+            y[vecBuf.idx] = vecBuf.value;
 
             // Kill process when calculated
             if (returnCounter >= m)
@@ -165,19 +168,6 @@ double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm com
                     MPI_Send(&sendBuf, 1, MPI_UINT64_T, i, 0, comm);
                 }
                 break;
-            }
-
-            while (1)
-            {
-                MPI_Test(&request, &flag, &status);
-
-                if (flag)
-                {
-                    returnCounter++;
-                    y[vecBuf.idx] = vecBuf.value;
-
-                    break;
-                };
             }
         }
     }
@@ -198,9 +188,9 @@ double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm com
             endIdx = m;
         }
 
-#ifndef MAKE_TEST
-        cout << "rank: " << rank << ", startIdx: " << startIdx << ", endIdx: " << endIdx << endl;
-#endif
+        // #ifndef MAKE_TEST
+        //         cout << "rank: " << rank << ", startIdx: " << startIdx << ", endIdx: " << endIdx << endl;
+        // #endif
 
         for (size_t j = startIdx; j < endIdx; j++)
         {
@@ -229,4 +219,21 @@ double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm com
     // cout << "rank: " << rank << " exiting" << endl;
 
     return y;
+}
+
+/**
+ * @brief 2D Matrix dot product with vector
+ *
+ * @param A The main matrix
+ * @param m The row count of the matrix
+ * @param n The column count of the matrix
+ * @param x The product vector
+ * @param y The result vector
+ * @param comm The current MPI_Comm
+ * @return The shared_ptr pointer to the result
+ */
+double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
+{
+    // The fastest in benchmark so far
+    return vectorProductRowByRow(A, m, n, x, comm);
 }

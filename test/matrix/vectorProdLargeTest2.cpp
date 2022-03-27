@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 
     auto start = high_resolution_clock::now();
 
-    auto result = vectorProduct(B, ROWS, COLUMNS, y, MCW);
+    auto result = vectorProductRowByRow(B, ROWS, COLUMNS, y, MCW);
 
     auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
 
