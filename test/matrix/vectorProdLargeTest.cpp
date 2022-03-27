@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &commSize);
 
-    const size_t COLUMNS = 800;
+    const size_t COLUMNS = 2400;
     const size_t ROWS = COLUMNS;
     const size_t TOTAL = COLUMNS * ROWS;
 
@@ -48,7 +48,10 @@ int main(int argc, char **argv)
     {
         // cout << "Result is ";
         printVector(result, COLUMNS);
-        //cout << duration.count() << endl;
+
+#ifndef MAKE_TEST
+        cout << "time: " << duration.count() << "ms" << endl;
+#endif
     }
 
     MPI_Finalize();
