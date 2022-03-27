@@ -1,0 +1,8 @@
+Test Vector [
+  0
+  1
+  2
+  3
+  4
+]
+Inf norm result: infNorm(testVec) = 4

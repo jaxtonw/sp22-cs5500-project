@@ -1,5 +1,5 @@
-#include "./vectorProd.h"
-#include "../common/helpers.h"
+#include "../../src/matrix/vectorProd.h"
+#include "../../src/common/helpers.h"
 #include <mpi.h>
 #include <chrono>
 #include <iostream>
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 
     if (rank == 0)
     {
-        cout << "time (microseconds): " << duration.count() << endl;
+        //cout << "time (microseconds): " << duration.count() << endl;
         printVector(result, m);
 
         /* valid result 
