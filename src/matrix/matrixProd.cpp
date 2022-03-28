@@ -12,7 +12,7 @@ void checkSizeCSendNext(uint64_t *currentIdx, uint64_t sizeC, uint16_t rank, MPI
 }
 
 /**
- * @brief 2D Matrix dot product with 2D Matrix
+ * @brief 2D Matrix dot product with 2D Matrix.
  *
  * @param A The left matrix
  * @param m The row count of the left matrix
@@ -134,7 +134,8 @@ double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint
 }
 
 /**
- * @brief 2D Matrix dot product with 2D Matrix
+ * @brief 2D Matrix - 2D Matrix product. It is assumed that matrix A is m x n and
+ *        matrix B is n x p. Result is a m x p matrix stored in array form.
  *
  * @param A The left matrix
  * @param m The row count of the left matrix

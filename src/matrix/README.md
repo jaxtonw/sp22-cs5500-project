@@ -10,3 +10,7 @@ This folder contains linear algebra operations related to matrices
 ## Running Tests
 
 In the root directory, run `make runtests`
+
+## Notes
+
+- No validation is performed on any matrix functions. Perform validation prior to using!
