@@ -4,7 +4,8 @@ This folder contains linear algebra operations related to matrices
 
 ## Implemented Operations
 
-- [Vector Product]](./vectorProd.cpp)
+- [Matrix-Vector Product](./vectorProd.cpp)
+- [Matrix-Matrix Product](./matrixProd.cpp)
 
 ## Running Tests
 

@@ -12,15 +12,15 @@ void checkSendNext(uint64_t *currentIdx, uint64_t m, uint16_t rank, MPI_Comm com
 }
 
 /**
- * @brief 2D Matrix dot product with vector, fastest
+ * @brief 2D Matrix dot product with vector. Rank 0 delivers work and receives calculations
+ *        asynchronously
  *
- * @param A The main matrix
+ * @param A The matrix
  * @param m The row count of the matrix
  * @param n The column count of the matrix
  * @param x The product vector
- * @param y The result vector
  * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
+ * @return The pointer to the result
  */
 double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
@@ -121,15 +121,15 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
 }
 
 /**
- * @brief 2D Matrix dot product with vector
+ * @brief 2D Matrix dot product with vector. Each rank pre-determines values to
+ *        send back to rank 0.
  *
- * @param A The main matrix
+ * @param A The matrix
  * @param m The row count of the matrix
  * @param n The column count of the matrix
  * @param x The product vector
- * @param y The result vector
  * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
+ * @return The pointer to the result
  */
 double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
@@ -224,13 +224,12 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
 /**
  * @brief 2D Matrix dot product with vector
  *
- * @param A The main matrix
+ * @param A The matrix
  * @param m The row count of the matrix
  * @param n The column count of the matrix
  * @param x The product vector
- * @param y The result vector
  * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
+ * @return The pointer to the result
  */
 double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
