@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
         printVector(testVec);
 
-        std::cout << "Inf norm result: infNorm(testVec) = " << infNorm(testVec) << std::endl;
+        std::cout << "Inf norm result: infNorm(testVec) = " << infNormSerial(testVec) << std::endl;
     }
 
     MPI_Finalize();

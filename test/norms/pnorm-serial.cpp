@@ -19,11 +19,11 @@ int main(int argc, char **argv)
         std::cout << "Test Vector ";
         printVector(testVec);
 
-        std::cout << "p norm result (p=1): pNorm(testVec, 1) = " << pNorm(testVec, 1) << std::endl;
-        std::cout << "p norm result (p=2): pNorm(testVec, 2) = " << pNorm(testVec, 2) << std::endl;
-        std::cout << "p norm result (p=3): pNorm(testVec, 3) = " << pNorm(testVec, 3) << std::endl;
-        std::cout << "p norm result (p=4): pNorm(testVec, 4) = " << pNorm(testVec, 4) << std::endl;
-        std::cout << "p norm result (p=5): pNorm(testVec, 5) = " << pNorm(testVec, 5) << std::endl;
+        std::cout << "p norm result (p=1): pNorm(testVec, 1) = " << pNormSerial(testVec, 1) << std::endl;
+        std::cout << "p norm result (p=2): pNorm(testVec, 2) = " << pNormSerial(testVec, 2) << std::endl;
+        std::cout << "p norm result (p=3): pNorm(testVec, 3) = " << pNormSerial(testVec, 3) << std::endl;
+        std::cout << "p norm result (p=4): pNorm(testVec, 4) = " << pNormSerial(testVec, 4) << std::endl;
+        std::cout << "p norm result (p=5): pNorm(testVec, 5) = " << pNormSerial(testVec, 5) << std::endl;
     }
 
     MPI_Finalize();

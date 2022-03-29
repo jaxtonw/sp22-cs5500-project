@@ -1,6 +1,6 @@
 #include "twonorm-serial.h"
 
-double twoNorm(std::vector<double> vec) {
+double twoNormSerial(std::vector<double> vec) {
     double result = 0;
     for (double item: vec) {
         result += item * item;

@@ -4,6 +4,6 @@
 #include <vector>
 #include <math.h>
 
-double twoNorm(std::vector<double> vec);
+double twoNormSerial(std::vector<double> vec);
 
 #endif

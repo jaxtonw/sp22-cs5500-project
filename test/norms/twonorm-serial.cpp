@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
         printVector(testVec);
 
-        std::cout << "Two norm result: twoNorm(testVec) = " << twoNorm(testVec) << std::endl;
+        std::cout << "Two norm result: twoNorm(testVec) = " << twoNormSerial(testVec) << std::endl;
     }
 
     MPI_Finalize();

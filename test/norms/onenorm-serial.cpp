@@ -19,7 +19,7 @@ int main(int argc, char **argv)
         std::cout << "Test Vector ";
         printVector(testVec);
 
-        std::cout << "One norm result: oneNorm(testVec) = " << oneNorm(testVec) << std::endl;
+        std::cout << "One norm result: oneNorm(testVec) = " << oneNormSerial(testVec) << std::endl;
     }
     MPI_Finalize();
 
