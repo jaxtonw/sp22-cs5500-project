@@ -21,5 +21,7 @@ int main(int argc, char **argv)
 
         std::cout << "One norm result: oneNorm(testVec) = " << oneNorm(testVec) << std::endl;
     }
+    MPI_Finalize();
+
     return 0;
 }

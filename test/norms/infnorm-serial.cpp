@@ -23,5 +23,7 @@ int main(int argc, char **argv)
         std::cout << "Inf norm result: infNorm(testVec) = " << infNorm(testVec) << std::endl;
     }
 
+    MPI_Finalize();
+
     return 0;
 }

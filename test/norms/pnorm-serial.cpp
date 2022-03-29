@@ -26,5 +26,7 @@ int main(int argc, char **argv)
         std::cout << "p norm result (p=5): pNorm(testVec, 5) = " << pNorm(testVec, 5) << std::endl;
     }
 
+    MPI_Finalize();
+
     return 0;
 }

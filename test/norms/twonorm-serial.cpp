@@ -23,5 +23,7 @@ int main(int argc, char **argv)
         std::cout << "Two norm result: twoNorm(testVec) = " << twoNorm(testVec) << std::endl;
     }
 
+    MPI_Finalize();
+
     return 0;
 }
