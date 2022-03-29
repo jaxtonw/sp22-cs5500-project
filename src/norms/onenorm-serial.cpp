@@ -1,4 +1,4 @@
-#include "onenorm.h"
+#include "onenorm-serial.h"
 
 double oneNorm(std::vector<double> vec) {
     double result = 0;

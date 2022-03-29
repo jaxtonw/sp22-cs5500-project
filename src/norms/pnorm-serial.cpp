@@ -1,4 +1,4 @@
-#include "pnorm.h"
+#include "pnorm-serial.h"
 
 double pNorm(std::vector<double> vec, double p) {
     double result = 0;

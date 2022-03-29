@@ -1,4 +1,4 @@
-#include "twonorm.h"
+#include "twonorm-serial.h"
 
 double twoNorm(std::vector<double> vec) {
     double result = 0;

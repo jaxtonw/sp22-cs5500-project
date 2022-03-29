@@ -1,5 +1,5 @@
 #include "../../src/common/helpers.h"
-#include "../../src/norms/pnorm.h"
+#include "../../src/norms/pnorm-serial.h"
 #include "mpi.h"
 
 int main(int argc, char **argv)

@@ -1,5 +1,5 @@
 
-#include "infnorm.h"
+#include "infnorm-serial.h"
 
 double infNorm(std::vector<double> vec) {
     double result = 0;

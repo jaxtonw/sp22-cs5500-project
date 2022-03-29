@@ -1,5 +1,5 @@
 #include "../../src/common/helpers.h"
-#include "../../src/norms/infnorm.h"
+#include "../../src/norms/twonorm-serial.h"
 #include "mpi.h"
 
 int main(int argc, char **argv)
@@ -13,14 +13,14 @@ int main(int argc, char **argv)
         std::vector<double> testVec;
         for (int i = 0; i < 5; i++)
         {
-            testVec.push_back((double)i);
+            testVec.push_back(1.0);
         }
 
         std::cout << "Test Vector ";
 
         printVector(testVec);
 
-        std::cout << "Inf norm result: infNorm(testVec) = " << infNorm(testVec) << std::endl;
+        std::cout << "Two norm result: twoNorm(testVec) = " << twoNorm(testVec) << std::endl;
     }
 
     return 0;
