@@ -1,3 +1,4 @@
+# Modified version of https://spin.atomicobject.com/2016/08/26/makefile-c-projects/
 SHELL := /bin/bash
 
 SRC_DIRS ?= src

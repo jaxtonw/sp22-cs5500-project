@@ -16,16 +16,26 @@ MPI_Datatype mpiDatatypeVectorCalcType()
     int lengths[numObjs] = {1, 1};
 
     MPI_Aint displacements[numObjs];
-    struct vectorCalcStruct dummy_person;
+    struct vectorCalcStruct dummyVectorCalcStruct;
     MPI_Aint base_address;
-    MPI_Get_address(&dummy_person, &base_address);
-    MPI_Get_address(&dummy_person.idx, &displacements[0]);
-    MPI_Get_address(&dummy_person.value, &displacements[1]);
+    MPI_Get_address(&dummyVectorCalcStruct, &base_address);
+    MPI_Get_address(&dummyVectorCalcStruct.idx, &displacements[0]);
+    MPI_Get_address(&dummyVectorCalcStruct.value, &displacements[1]);
     displacements[0] = MPI_Aint_diff(displacements[0], base_address);
     displacements[1] = MPI_Aint_diff(displacements[1], base_address);
 
     MPI_Datatype types[numObjs] = {MPI_UINT64_T, MPI_DOUBLE};
+
+    // Generate the MPI Type struct with the following info:
+    // - The number of objects
+    // - An array containing the number of each primitive
+    // - The displacements (byte size?) of each primitive
+    // - An array containing the MPI primitive types
+    // - The pointer to the to-be-created type
     MPI_Type_create_struct(numObjs, lengths, displacements, types, &vectorCalcType);
+
+    // Register the type with mpi
     MPI_Type_commit(&vectorCalcType);
+
     return vectorCalcType;
 }
