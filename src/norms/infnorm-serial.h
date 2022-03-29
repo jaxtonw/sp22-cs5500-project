@@ -1,5 +1,5 @@
-#ifndef INFNORM_H
-#define INFNORM_H
+#ifndef INFNORMSERIAL_H
+#define INFNORMSERIAL_H
 
 #include <vector>
 #include <math.h>
