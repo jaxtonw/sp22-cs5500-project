@@ -1,5 +1,5 @@
 #include "../../src/common/helpers.h"
-#include "../../src/norms/infnorm.h"
+#include "../../src/norms/infnorm-serial.h"
 #include "mpi.h"
 
 int main(int argc, char **argv)
@@ -20,8 +20,10 @@ int main(int argc, char **argv)
 
         printVector(testVec);
 
-        std::cout << "Inf norm result: infNorm(testVec) = " << infNorm(testVec) << std::endl;
+        std::cout << "Inf norm result: infNorm(testVec) = " << infNormSerial(testVec) << std::endl;
     }
+
+    MPI_Finalize();
 
     return 0;
 }

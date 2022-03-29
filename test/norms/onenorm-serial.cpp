@@ -1,6 +1,5 @@
-
 #include "../../src/common/helpers.h"
-#include "../../src/norms/twonorm.h"
+#include "../../src/norms/onenorm-serial.h"
 #include "mpi.h"
 
 int main(int argc, char **argv)
@@ -18,11 +17,11 @@ int main(int argc, char **argv)
         }
 
         std::cout << "Test Vector ";
-
         printVector(testVec);
 
-        std::cout << "Two norm result: twoNorm(testVec) = " << twoNorm(testVec) << std::endl;
+        std::cout << "One norm result: oneNorm(testVec) = " << oneNormSerial(testVec) << std::endl;
     }
+    MPI_Finalize();
 
     return 0;
 }
