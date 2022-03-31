@@ -18,9 +18,9 @@ vector<vector<double>> element_multiply(int rank, int size,
 vector<vector<double>> transpose(int rank, int size,
     vector<vector<double>> a);
 void delay(int num);
-
+//this code was found on http://skinderowicz.pl/static/pw2/MPI-tutorial.html
 vector<double> recv_vector(int sender);
-
+//this code was found on http://skinderowicz.pl/static/pw2/MPI-tutorial.html
 void send_vector(int dest, const vector<double>& vec);
 
 

@@ -435,35 +435,31 @@ vector<vector<double>> transpose(int rank, int size,
 }
 
 
-
+//this function was found on http://skinderowicz.pl/static/pw2/MPI-tutorial.html
 void send_vector(int dest, const vector<double>& vec) {
-    // Pobierz i wyślij rozmiar wektora
-    uint32_t size = static_cast<uint32_t>(vec.size());
-    MPI_Send(&size, 1, MPI_UNSIGNED, dest, 0, MPI_COMM_WORLD);
+//send vector size
+    int size = vec.size();
+    MPI_Send(&size, 1, MPI_INT, dest, 0, MPI_COMM_WORLD);
 
-    // Teraz elementy
+    // send vector element
     const double* elements = vec.data();
     MPI_Send(elements, size, MPI_DOUBLE, dest, 0, MPI_COMM_WORLD);
 }
 
-
+//this function was found on http://skinderowicz.pl/static/pw2/MPI-tutorial.html
 vector<double> recv_vector(int sender) {
     MPI_Status status;
 
-    // Odbierz wiad. z rozmiarem wektora
-    uint32_t size = 0;
-    auto code = MPI_Recv(&size, 1, MPI_UNSIGNED, sender, 0, MPI_COMM_WORLD, &status);
-    if (code != MPI_SUCCESS) {
-        MPI_Abort(MPI_COMM_WORLD, code);
+    // Receive a message with vector size
+    int size = 0;
+    MPI_Recv(&size, 1, MPI_INT, sender, 0, MPI_COMM_WORLD, &status);
     }
 
-    vector<double> numbers(size);  // Alokujemy pamięć na otrzymane elementy
-    double* elements = numbers.data();  // Wskaźnik bufora docelowego
-    code = MPI_Recv(elements, size, MPI_DOUBLE, sender, 0, MPI_COMM_WORLD, &status);
-    if (code != MPI_SUCCESS) {
-        MPI_Abort(MPI_COMM_WORLD, code);
-    }
-    return numbers;
+    vector<double> numbers(size);  //  allocate memory to the received items
+    double* elements = numbers.data();  // convert to sendable data type
+    MPI_Recv(elements, size, MPI_DOUBLE, sender, 0, MPI_COMM_WORLD, &status);
+
+	return numbers;
 }
 
 
