@@ -4,6 +4,6 @@
 #include <vector>
 #include <math.h>
 
-double infNorm(std::vector<double> vec);
+double infNormSerial(std::vector<double> vec);
 
 #endif

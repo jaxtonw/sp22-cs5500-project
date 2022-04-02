@@ -4,6 +4,6 @@
 #include <vector>
 #include <math.h>
 
-double pNorm(std::vector<double> vec, double p);
+double pNormSerial(std::vector<double> vec, double p);
 
 #endif
