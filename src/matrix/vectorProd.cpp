@@ -28,10 +28,10 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
 
     MPI_Comm_rank(comm, &rank);
     MPI_Comm_size(comm, &commSize);
-    MPI_Datatype vectorCalcType = mpiDatatypeVectorCalcType();
+    MPI_Datatype indexDoubleType = createIndexDoubleDatatype();
 
     double *y = NULL;
-    vectorCalcStruct vecBuf;
+    indexDoubleStruct vecBuf;
 
     if (rank == 0)
     {
@@ -43,7 +43,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
 
         while (1)
         {
-            MPI_Irecv(&vecBuf, 1, vectorCalcType, MPI_ANY_SOURCE, 0, comm, &request);
+            MPI_Irecv(&vecBuf, 1, indexDoubleType, MPI_ANY_SOURCE, 0, comm, &request);
 
             // On initial send, start workers
             if (!curIdx)
@@ -111,7 +111,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
                 vecBuf.value += x[i] * A[recBuf * n + i];
             }
 
-            MPI_Send(&vecBuf, 1, vectorCalcType, 0, 0, comm);
+            MPI_Send(&vecBuf, 1, indexDoubleType, 0, 0, comm);
         }
     }
 
@@ -137,10 +137,10 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
 
     MPI_Comm_rank(comm, &rank);
     MPI_Comm_size(comm, &commSize);
-    MPI_Datatype vectorCalcType = mpiDatatypeVectorCalcType();
+    MPI_Datatype indexDoubleType = createIndexDoubleDatatype();
 
     double *y = NULL;
-    vectorCalcStruct vecBuf;
+    indexDoubleStruct vecBuf;
 
     if (rank == 0)
     {
@@ -152,7 +152,7 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
 
         while (1)
         {
-            MPI_Recv(&vecBuf, 1, vectorCalcType, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
+            MPI_Recv(&vecBuf, 1, indexDoubleType, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
 
             returnCounter++;
             y[vecBuf.idx] = vecBuf.value;
@@ -202,7 +202,7 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
                 vecBuf.value += x[i] * A[j * n + i];
             }
 
-            MPI_Send(&vecBuf, 1, vectorCalcType, 0, 0, comm);
+            MPI_Send(&vecBuf, 1, indexDoubleType, 0, 0, comm);
         }
 
         while (1)
