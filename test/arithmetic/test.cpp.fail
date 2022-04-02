@@ -20,7 +20,6 @@
 
 
 
-using namespace std;
 
 
 int main(int argc, char** argv) {
@@ -45,9 +44,9 @@ int main(int argc, char** argv) {
         for (int k = 0; k < nmax; k++) {
             a[i][k] = num;
             num++;
-            //cout<<a[i][k] <<" ";
+            //std::cout<<a[i][k] <<" ";
         }
-        //cout << endl;
+        //std::cout << std::endl;
     }
 
 
@@ -65,28 +64,28 @@ int main(int argc, char** argv) {
     }
     MPI_Barrier(MCW);
     delay(15);
-    //cout<<rank<<" is the rank "<<endl;
+    //std::cout<<rank<<" is the rank "<<endl;
     
 
 
     if (!rank) {
-        cout << "\n  matrix a " << endl;
+        std::cout << "\n  matrix a " << std::endl;
         for (int i = 0; i < mmax; i++) {
             for (int k = 0; k < nmax; k++) {
-                cout << a[i][k] << "  ";
+                std::cout << a[i][k] << "  ";
 
             }
-            cout << endl;
+            std::cout << std::endl;
 
         }
 
-        cout << "\n  matrix b " << endl;
+        std::cout << "\n  matrix b " << std::endl;
         for (int i = 0; i < mmax; i++) {
             for (int k = 0; k < nmax; k++) {
-                cout << b[i][k] << "  ";
+                std::cout << b[i][k] << "  ";
 
             }
-            cout << endl;
+            std::cout << std::endl;
 
         }
 
@@ -121,24 +120,24 @@ int main(int argc, char** argv) {
                 break;
             }
             if (!rank && i<3 ) {
-                cout << "\n  output matrix " << endl;
+                std::cout << "\n  output matrix " << std::endl;
                 for (int i = 0; i < mmax; i++) {
                     for (int k = 0; k < nmax; k++) {
-                        cout << c[i][k] << "  ";
+                        std::cout << c[i][k] << "  ";
 
                     }
-                    cout << endl;
+                    std::cout << std::endl;
 
                 }
             }
             else if (!rank && experession==4) {
-                cout << "\n  output matrix " << endl;
+                std::cout << "\n  output matrix " << std::endl;
                 for (int i = 0; i < nmax; i++) {
                     for (int k = 0; k < mmax; k++) {
-                        cout << c[i][k] << "  ";
+                        std::cout << c[i][k] << "  ";
 
                     }
-                    cout << endl;
+                    std::cout << std::endl;
 
                 }
                 }

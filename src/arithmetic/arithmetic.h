@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include <mpi.h>
 #include <stdio.h>
@@ -24,3 +25,4 @@ vector<double> recv_vector(int sender);
 void send_vector(int dest, const vector<double>& vec);
 
 
+*/

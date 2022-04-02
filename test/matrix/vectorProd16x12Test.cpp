@@ -5,7 +5,6 @@
 #include <iostream>
 
 using namespace std::chrono;
-using namespace std;
 
 #define MCW MPI_COMM_WORLD
 
@@ -52,7 +51,7 @@ int main(int argc, char **argv)
 
     if (rank == 0)
     {
-        //cout << "time (microseconds): " << duration.count() << endl;
+        //std::cout << "time (microseconds): " << duration.count() << std::endl;
         printVector(result, m);
 
         /* valid result 

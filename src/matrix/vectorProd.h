@@ -7,8 +7,6 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 double *vectorProduct(double *A, size_t m, size_t n, double *x, MPI_Comm comm);
 double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm);
 

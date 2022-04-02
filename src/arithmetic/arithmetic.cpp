@@ -1,4 +1,4 @@
-
+/*
 #include "arithmetic.h"
 
 
@@ -40,7 +40,7 @@ vector<vector<double>> addition(int rank, int size,
         if (!rank) {
 
             while (1) {//root proccessor
-                //cout<< rank<<endl;
+                //std::cout << rank<<endl;
                 delay(10);
                 // see if we have any messages
                 int flag = 0;
@@ -54,10 +54,10 @@ vector<vector<double>> addition(int rank, int size,
                     c[index]=recv_vector(i);
 
                     //for (int l = 0; l < nmax; l++) {
-                    //   cout << "c array: " << c[index][l] << endl;
+                    //   std::cout << "c array: " << c[index][l] << endl;
                     //}
                     delay(15);
-                    //cout<< endl;
+                    //std::cout<< endl;
                     i++;
                     if (i == size)
                         i = 1;
@@ -67,31 +67,31 @@ vector<vector<double>> addition(int rank, int size,
                     MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MCW, &flag, &status);
                 }
                 if (index == a.size()) {
-                    // cout << "if entered" << endl;
+                    // std::cout << "if entered" << endl;
                     indexflag = 1;
-                    //cout << "if exited" << c[3][3] << endl;
+                    //std::cout << "if exited" << c[3][3] << endl;
 
                 }
                 //send sum back to other processors
                 if (!flag && indexflag) {
-                    //cout<<"indexed: "<< c[4][8] << endl;
+                    //std::cout<<"indexed: "<< c[4][8] << endl;
 
                     break;
                 }
             }
             delay(10);
 
-            //cout << rank << " break out" << endl;
+            //std::cout << rank << " break out" << endl;
             break;
 
         }
         else {//all other processors
               //send one random number from each processor to root
             delay(10);
-            //cout << rank << endl;
+            //std::cout << rank << endl;
             //send row to root processor
            // for (int l = 0; l < nmax; l++) {
-            //    cout << "c array: " << c[j][l]<<"  ";
+            //    std::cout << "c array: " << c[j][l]<<"  ";
             //}
             send_vector(0, c[j]);
             
@@ -107,8 +107,8 @@ vector<vector<double>> addition(int rank, int size,
 
 
     MPI_Barrier(MCW);
-    //  if (!rank) cout << rank << endl;
-      //cout << "end of fun for : " << rank << endl;
+    //  if (!rank) std::cout << rank << endl;
+      //std::cout << "end of fun for : " << rank << endl;
 
 
 
@@ -146,7 +146,7 @@ vector<vector<double>> subtraction(int rank, int size,
         if (!rank) {
 
             while (1) {//root proccessor
-                //cout<< rank<<endl;
+                //std::cout<< rank<<endl;
                 delay(10);
                 // see if we have any messages
                 int flag = 0;
@@ -160,10 +160,10 @@ vector<vector<double>> subtraction(int rank, int size,
                     c[index] = recv_vector(i);
 
                     //for (int l = 0; l < nmax; l++) {
-                    //   cout << "c array: " << c[index][l] << endl;
+                    //   std::cout << "c array: " << c[index][l] << endl;
                     //}
                     delay(15);
-                    //cout<< endl;
+                    //std::cout<< endl;
                     i++;
                     if (i == size)
                         i = 1;
@@ -173,31 +173,31 @@ vector<vector<double>> subtraction(int rank, int size,
                     MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MCW, &flag, &status);
                 }
                 if (index == a.size()) {
-                    // cout << "if entered" << endl;
+                    // std::cout << "if entered" << endl;
                     indexflag = 1;
-                    //cout << "if exited" << c[3][3] << endl;
+                    //std::cout << "if exited" << c[3][3] << endl;
 
                 }
                 //send sum back to other processors
                 if (!flag && indexflag) {
-                    //cout<<"indexed: "<< c[4][8] << endl;
+                    //std::cout<<"indexed: "<< c[4][8] << endl;
 
                     break;
                 }
             }
             delay(10);
 
-            //cout << rank << " break out" << endl;
+            //std::cout << rank << " break out" << endl;
             break;
 
         }
         else {//all other processors
               //send one random number from each processor to root
             delay(10);
-            //cout << rank << endl;
+            //std::cout << rank << endl;
             //send row to root processor
            // for (int l = 0; l < nmax; l++) {
-            //    cout << "c array: " << c[j][l]<<"  ";
+            //    std::cout << "c array: " << c[j][l]<<"  ";
             //}
             send_vector(0, c[j]);
 
@@ -213,8 +213,8 @@ vector<vector<double>> subtraction(int rank, int size,
 
 
     MPI_Barrier(MCW);
-    //  if (!rank) cout << rank << endl;
-      //cout << "end of fun for : " << rank << endl;
+    //  if (!rank) std::cout << rank << endl;
+      //std::cout << "end of fun for : " << rank << endl;
 
 
 
@@ -251,7 +251,7 @@ vector<vector<double>> element_multiply(int rank, int size,
         if (!rank) {
 
             while (1) {//root proccessor
-                //cout<< rank<<endl;
+                //std::cout<< rank<<endl;
                 delay(10);
                 // see if we have any messages
                 int flag = 0;
@@ -265,10 +265,10 @@ vector<vector<double>> element_multiply(int rank, int size,
                     c[index] = recv_vector(i);
 
                     //for (int l = 0; l < nmax; l++) {
-                    //   cout << "c array: " << c[index][l] << endl;
+                    //   std::cout << "c array: " << c[index][l] << endl;
                     //}
                     delay(15);
-                    //cout<< endl;
+                    //std::cout<< endl;
                     i++;
                     if (i == size)
                         i = 1;
@@ -278,31 +278,31 @@ vector<vector<double>> element_multiply(int rank, int size,
                     MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MCW, &flag, &status);
                 }
                 if (index == a.size()) {
-                    // cout << "if entered" << endl;
+                    // std::cout << "if entered" << endl;
                     indexflag = 1;
-                    //cout << "if exited" << c[3][3] << endl;
+                    //std::cout << "if exited" << c[3][3] << endl;
 
                 }
                 //send sum back to other processors
                 if (!flag && indexflag) {
-                    //cout<<"indexed: "<< c[4][8] << endl;
+                    //std::cout<<"indexed: "<< c[4][8] << endl;
 
                     break;
                 }
             }
             delay(10);
 
-            //cout << rank << " break out" << endl;
+            //std::cout << rank << " break out" << endl;
             break;
 
         }
         else {//all other processors
               //send one random number from each processor to root
             delay(10);
-            //cout << rank << endl;
+            //std::cout << rank << endl;
             //send row to root processor
            // for (int l = 0; l < nmax; l++) {
-            //    cout << "c array: " << c[j][l]<<"  ";
+            //    std::cout << "c array: " << c[j][l]<<"  ";
             //}
             send_vector(0, c[j]);
 
@@ -318,8 +318,8 @@ vector<vector<double>> element_multiply(int rank, int size,
 
 
     MPI_Barrier(MCW);
-    //  if (!rank) cout << rank << endl;
-      //cout << "end of fun for : " << rank << endl;
+    //  if (!rank) std::cout << rank << endl;
+      //std::cout << "end of fun for : " << rank << endl;
 
 
 
@@ -358,13 +358,13 @@ vector<vector<double>> transpose(int rank, int size,
         if (!rank) {
 
             while (1) {//root proccessor
-                //cout<< rank<<endl;
+                //std::cout<< rank<<endl;
                 delay(10);
                 // see if we have any messages
                 int flag = 0;
                 int indexflag = 0;
                 int i = 1;
-                cout << stuck << endl;
+                std::cout << stuck << endl;
 
                 MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MCW, &flag, &status);
                 while (flag) {
@@ -373,10 +373,10 @@ vector<vector<double>> transpose(int rank, int size,
                     c[index] = recv_vector(i);
 
                     //for (int l = 0; l < c[1].size(); l++) {
-                    //   cout << "c array: " << c[index][l] << endl;
+                    //   std::cout << "c array: " << c[index][l] << endl;
                     //}
                     delay(15);
-                    //cout<< endl;
+                    //std::cout<< endl;
                     i++;
                     if (i == size)
                         i = 1;
@@ -386,31 +386,31 @@ vector<vector<double>> transpose(int rank, int size,
                     MPI_Iprobe(MPI_ANY_SOURCE, MPI_ANY_TAG, MCW, &flag, &status);
                 }
                 if (index == a[1].size()) {
-                    // cout << "if entered" << endl;
+                    // std::cout << "if entered" << endl;
                     indexflag = 1;
-                    //cout << "if exited" << c[3][3] << endl;
+                    //std::cout << "if exited" << c[3][3] << endl;
 
                 }
                 //send sum back to other processors
                 if (!flag && indexflag) {
-//                    cout<<"indexed: "<< c[4][8] << endl;
+//                    std::cout<<"indexed: "<< c[4][8] << endl;
 
                     break;
                 }
             }
             delay(10);
 
-            //cout << rank << " break out" << endl;
+            //std::cout << rank << " break out" << endl;
             break;
 
         }
         else {//all other processors
               //send one random number from each processor to root
             delay(10);
-            //cout << rank << endl;
+            //std::cout << rank << endl;
             //send row to root processor
            // for (int l = 0; l < nmax; l++) {
-            //    cout << "c array: " << c[j][l]<<"  ";
+            //    std::cout << "c array: " << c[j][l]<<"  ";
             //}
             send_vector(0, c[j]);
 
@@ -426,8 +426,8 @@ vector<vector<double>> transpose(int rank, int size,
 
 
     MPI_Barrier(MCW);
-    //  if (!rank) cout << rank << endl;
-      //cout << "end of fun for : " << rank << endl;
+    //  if (!rank) std::cout << rank << endl;
+      //std::cout << "end of fun for : " << rank << endl;
 
 
 
@@ -482,3 +482,4 @@ void delay(int num) {
 
 
 
+*/

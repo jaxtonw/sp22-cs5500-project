@@ -3,7 +3,6 @@
 #include <iostream>
 
 using namespace std::chrono;
-using namespace std;
 
 int main(int argc, char **argv)
 {
@@ -39,7 +38,7 @@ int main(int argc, char **argv)
 
     auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
 
-    // cout << "Result is ";
+    // std::cout << "Result is ";
     // printVector(y, COLUMNS);
-    cout << duration.count() << endl;
+    std::cout << duration.count() << std::endl;
 }

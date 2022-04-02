@@ -6,8 +6,6 @@
 #include "../common/mpiHelpers.h"
 #include <iostream>
 
-using namespace std;
-
 double *matrixProduct(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm);
 double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm);
 

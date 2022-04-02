@@ -8,7 +8,6 @@
 #define MCW MPI_COMM_WORLD
 
 using namespace std::chrono;
-using namespace std;
 
 int main(int argc, char **argv)
 {
@@ -47,10 +46,10 @@ int main(int argc, char **argv)
     if (rank == 0)
     {
 #ifdef MAKE_TEST
-        // cout << "Result is ";
+        // std::cout << "Result is ";
         printVector(result, COLUMNS);
 #else
-        cout << duration.count() << endl;
+        std::cout << duration.count() << std::endl;
 #endif
     }
 
