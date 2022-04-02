@@ -10,7 +10,7 @@ struct indexDoubleStruct
     double value;
 };
 
-struct indexLenSliceStruct
+struct indexDoubleSliceStruct
 {
     uint64_t idx;
     uint64_t len;
