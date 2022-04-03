@@ -44,6 +44,23 @@ void printMatrix2D(double *A, int m, int n)
     }
 }
 
+void printDblUnion(dblUnion u)
+{
+    std::cout << "unioned to double is " << u.dbl << std::endl;
+    std::cout << "unioned to uint64 is " << u.uint64 << std::endl;
+    std::cout << "unioned to int64 is " << u.int64 << std::endl;
+    std::cout << "unioned to uint8* is [";
+    for (size_t i = 0; i < 8; i++)
+    {
+        if (i)
+        {
+            std::cout << ", ";
+        }
+        std::cout << (int)u.uint8[i];
+    }
+    std::cout << "]" << std::endl;
+}
+
 /**
  * @brief Returns whether a positive value is a power of two
  *

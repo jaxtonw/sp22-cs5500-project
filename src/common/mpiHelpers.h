@@ -10,14 +10,8 @@ struct indexDoubleStruct
     double value;
 };
 
-struct indexDoubleSliceStruct
-{
-    uint64_t idx;
-    uint64_t len;
-    double* value;
-};
+void printStruct(indexDoubleStruct s);
 
 MPI_Datatype createIndexDoubleDatatype();
-MPI_Datatype createIndexDoubleSliceDatatype(int length);
 
 #endif
