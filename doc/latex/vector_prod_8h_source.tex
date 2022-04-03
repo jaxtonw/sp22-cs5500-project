@@ -1,0 +1,23 @@
+\hypertarget{vector_prod_8h_source}{}\doxysection{vector\+Prod.\+h}
+\label{vector_prod_8h_source}\index{src/matrix/vectorProd.h@{src/matrix/vectorProd.h}}
+\mbox{\hyperlink{vector_prod_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifndef VECTOR\_PROD\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#define VECTOR\_PROD\_H}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}mpi.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}../common/constants.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../common/mpiHelpers.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{27 \textcolor{keywordtype}{double} *\mbox{\hyperlink{vector_prod_8h_a1b2d1e2568ce06e66d9f3f75e31804ef}{vectorProduct}}(\textcolor{keywordtype}{double} *A, \textcolor{keywordtype}{size\_t} m, \textcolor{keywordtype}{size\_t} n, \textcolor{keywordtype}{double} *x, MPI\_Comm comm);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{40 \textcolor{keywordtype}{double} *\mbox{\hyperlink{vector_prod_8h_aab31ddafc8337f9beaef9e0c963f1519}{vectorProductRowByRow}}(\textcolor{keywordtype}{double} *A, uint64\_t m, uint64\_t n, \textcolor{keywordtype}{double} *x, MPI\_Comm comm);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

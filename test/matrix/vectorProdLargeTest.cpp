@@ -7,9 +7,6 @@
 
 #define MCW MPI_COMM_WORLD
 
-using namespace std::chrono;
-using namespace std;
-
 int main(int argc, char **argv)
 {
 
@@ -38,19 +35,20 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &commSize);
     MPI_Barrier(MPI_COMM_WORLD);
 
-    auto start = high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
 
     auto result = vectorProduct(B, ROWS, COLUMNS, y, MCW);
 
-    auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(
+        std::chrono::high_resolution_clock::now() - start);
 
     if (rank == 0)
     {
 #ifdef MAKE_TEST
-        // cout << "Result is ";
+        // std::cout << "Result is ";
         printVector(result, COLUMNS);
 #else
-        cout << duration.count() << endl;
+        std::cout << duration.count() << std::endl;
 #endif
     }
 
