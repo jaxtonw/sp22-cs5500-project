@@ -44,13 +44,6 @@ void printMatrix2D(double *A, int m, int n)
     }
 }
 
-/**
- * @brief Returns whether a positive value is a power of two
- *
- * @param value The value to check
- * @return true If the value is a power of 2
- * @return false If the value is not a power of 2
- */
 bool isPowerOfTwo(int value)
 {
     if (value <= 0)

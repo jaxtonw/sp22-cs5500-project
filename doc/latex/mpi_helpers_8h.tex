@@ -1,0 +1,51 @@
+\hypertarget{mpi_helpers_8h}{}\doxysection{src/common/mpi\+Helpers.h File Reference}
+\label{mpi_helpers_8h}\index{src/common/mpiHelpers.h@{src/common/mpiHelpers.h}}
+{\ttfamily \#include \char`\"{}mpi.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structindex_double_struct}{index\+Double\+Struct}}
+\item 
+struct \mbox{\hyperlink{structindex_double_slice_struct}{index\+Double\+Slice\+Struct}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+MPI\+\_\+\+Datatype \mbox{\hyperlink{mpi_helpers_8h_aa574bb1e6ac0d7b2fdeed551c1f04d7c}{create\+Index\+Double\+Datatype}} ()
+\item 
+MPI\+\_\+\+Datatype \mbox{\hyperlink{mpi_helpers_8h_aaa55733ee6365cc6d1119fc9cc84db44}{create\+Index\+Double\+Slice\+Datatype}} (int length)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper functions for creating custom MPI data types. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mpi_helpers_8h_aa574bb1e6ac0d7b2fdeed551c1f04d7c}\label{mpi_helpers_8h_aa574bb1e6ac0d7b2fdeed551c1f04d7c}} 
+\index{mpiHelpers.h@{mpiHelpers.h}!createIndexDoubleDatatype@{createIndexDoubleDatatype}}
+\index{createIndexDoubleDatatype@{createIndexDoubleDatatype}!mpiHelpers.h@{mpiHelpers.h}}
+\doxysubsubsection{\texorpdfstring{createIndexDoubleDatatype()}{createIndexDoubleDatatype()}}
+{\footnotesize\ttfamily MPI\+\_\+\+Datatype create\+Index\+Double\+Datatype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Creates a custom datatype representing an index (uint64\+\_\+t), and double value (double) and commits it to MPI.
+
+\begin{DoxyReturn}{Returns}
+MPI\+\_\+\+Datatype 
+\end{DoxyReturn}
+\mbox{\Hypertarget{mpi_helpers_8h_aaa55733ee6365cc6d1119fc9cc84db44}\label{mpi_helpers_8h_aaa55733ee6365cc6d1119fc9cc84db44}} 
+\index{mpiHelpers.h@{mpiHelpers.h}!createIndexDoubleSliceDatatype@{createIndexDoubleSliceDatatype}}
+\index{createIndexDoubleSliceDatatype@{createIndexDoubleSliceDatatype}!mpiHelpers.h@{mpiHelpers.h}}
+\doxysubsubsection{\texorpdfstring{createIndexDoubleSliceDatatype()}{createIndexDoubleSliceDatatype()}}
+{\footnotesize\ttfamily MPI\+\_\+\+Datatype create\+Index\+Double\+Slice\+Datatype (\begin{DoxyParamCaption}\item[{int}]{length }\end{DoxyParamCaption})}
+
+Creates a custom datatype representing an index (uint64\+\_\+t), slice length (uint64\+\_\+t) and array of double values ($\ast$double) and commits it to MPI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+MPI\+\_\+\+Datatype 
+\end{DoxyReturn}

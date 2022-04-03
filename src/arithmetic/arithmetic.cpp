@@ -453,7 +453,7 @@ vector<double> recv_vector(int sender) {
     // Receive a message with vector size
     int size = 0;
     MPI_Recv(&size, 1, MPI_INT, sender, 0, MPI_COMM_WORLD, &status);
-    }
+    
 
     vector<double> numbers(size);  //  allocate memory to the received items
     double* elements = numbers.data();  // convert to sendable data type

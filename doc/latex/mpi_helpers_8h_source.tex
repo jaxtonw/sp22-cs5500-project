@@ -1,0 +1,31 @@
+\hypertarget{mpi_helpers_8h_source}{}\doxysection{mpi\+Helpers.\+h}
+\label{mpi_helpers_8h_source}\index{src/common/mpiHelpers.h@{src/common/mpiHelpers.h}}
+\mbox{\hyperlink{mpi_helpers_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#ifndef MPI\_HELPERS\_H}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define MPI\_HELPERS\_H}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}mpi.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{struct }\mbox{\hyperlink{structindex_double_struct}{indexDoubleStruct}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     uint64\_t idx;}
+\DoxyCodeLine{16     \textcolor{keywordtype}{double} value;}
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{struct }\mbox{\hyperlink{structindex_double_slice_struct}{indexDoubleSliceStruct}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     uint64\_t idx;}
+\DoxyCodeLine{22     uint64\_t len;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{double}* value;}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{32 MPI\_Datatype \mbox{\hyperlink{mpi_helpers_8h_aa574bb1e6ac0d7b2fdeed551c1f04d7c}{createIndexDoubleDatatype}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{42 MPI\_Datatype \mbox{\hyperlink{mpi_helpers_8h_aaa55733ee6365cc6d1119fc9cc84db44}{createIndexDoubleSliceDatatype}}(\textcolor{keywordtype}{int} length);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

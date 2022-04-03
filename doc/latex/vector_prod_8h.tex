@@ -1,0 +1,68 @@
+\hypertarget{vector_prod_8h}{}\doxysection{src/matrix/vector\+Prod.h File Reference}
+\label{vector_prod_8h}\index{src/matrix/vectorProd.h@{src/matrix/vectorProd.h}}
+{\ttfamily \#include \char`\"{}mpi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../common/constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../common/mpi\+Helpers.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double $\ast$ \mbox{\hyperlink{vector_prod_8h_a1b2d1e2568ce06e66d9f3f75e31804ef}{vector\+Product}} (double $\ast$A, size\+\_\+t m, size\+\_\+t n, double $\ast$x, MPI\+\_\+\+Comm comm)
+\item 
+double $\ast$ \mbox{\hyperlink{vector_prod_8h_aab31ddafc8337f9beaef9e0c963f1519}{vector\+Product\+Row\+By\+Row}} (double $\ast$A, uint64\+\_\+t m, uint64\+\_\+t n, double $\ast$x, MPI\+\_\+\+Comm comm)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for parallel matrix vector product. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vector_prod_8h_a1b2d1e2568ce06e66d9f3f75e31804ef}\label{vector_prod_8h_a1b2d1e2568ce06e66d9f3f75e31804ef}} 
+\index{vectorProd.h@{vectorProd.h}!vectorProduct@{vectorProduct}}
+\index{vectorProduct@{vectorProduct}!vectorProd.h@{vectorProd.h}}
+\doxysubsubsection{\texorpdfstring{vectorProduct()}{vectorProduct()}}
+{\footnotesize\ttfamily double $\ast$ vector\+Product (\begin{DoxyParamCaption}\item[{double $\ast$}]{A,  }\item[{size\+\_\+t}]{m,  }\item[{size\+\_\+t}]{n,  }\item[{double $\ast$}]{x,  }\item[{MPI\+\_\+\+Comm}]{comm }\end{DoxyParamCaption})}
+
+2D Matrix product with vector
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The matrix \\
+\hline
+{\em m} & The row count of the matrix \\
+\hline
+{\em n} & The column count of the matrix \\
+\hline
+{\em x} & The product vector \\
+\hline
+{\em comm} & The current MPI\+\_\+\+Comm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vector_prod_8h_aab31ddafc8337f9beaef9e0c963f1519}\label{vector_prod_8h_aab31ddafc8337f9beaef9e0c963f1519}} 
+\index{vectorProd.h@{vectorProd.h}!vectorProductRowByRow@{vectorProductRowByRow}}
+\index{vectorProductRowByRow@{vectorProductRowByRow}!vectorProd.h@{vectorProd.h}}
+\doxysubsubsection{\texorpdfstring{vectorProductRowByRow()}{vectorProductRowByRow()}}
+{\footnotesize\ttfamily double $\ast$ vector\+Product\+Row\+By\+Row (\begin{DoxyParamCaption}\item[{double $\ast$}]{A,  }\item[{uint64\+\_\+t}]{m,  }\item[{uint64\+\_\+t}]{n,  }\item[{double $\ast$}]{x,  }\item[{MPI\+\_\+\+Comm}]{comm }\end{DoxyParamCaption})}
+
+2D Matrix product with vector. Rank 0 delivers work and receives calculations asynchronously
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The matrix \\
+\hline
+{\em m} & The row count of the matrix \\
+\hline
+{\em n} & The column count of the matrix \\
+\hline
+{\em x} & The product vector \\
+\hline
+{\em comm} & The current MPI\+\_\+\+Comm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the result 
+\end{DoxyReturn}
