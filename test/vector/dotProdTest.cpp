@@ -1,4 +1,4 @@
-#include "../../src/vector/dotProd.h"
+#include "../../src/vector/vectorProd.h"
 #include "../../src/common/helpers.h"
 #include <mpi.h>
 #include <iostream>
