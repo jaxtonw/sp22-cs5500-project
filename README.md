@@ -6,13 +6,32 @@ This library provides Linear Algebra functions and routines performed both seria
 
 ## Implemented Operations
 
--   [Transpose](./src/arithmetic/arithmetic.cpp)
--   [ElementMultiply](./src/arithmetic/arithmetic.cpp)
--   [Addition](./src/arithmetic/arithmetic.cpp)
--   [Subtraction](./src/arithmetic/arithmetic.cpp)
--   [Matrix-Vector Product](./src/matrix/vectorProd.cpp)
--   [Matrix-Matrix Product](./src/matrix/matrixProd.cpp)
--   [Vector-Vector Product](./src/vector/dotProd.cpp)
+- Matrix
+  - Transpose
+  - Addition
+    - Matrix
+    - Scalar
+  - Subtraction
+    - Matrix
+    - Scalar
+  - Product
+    - Matrix
+    - Vector
+  - Elementwise Product
+    - Matrix
+    - Scalar
+- Vector
+  - Addition
+    - Vector
+    - Scalar
+  - Subtraction
+    - Vector
+    - Scalar
+  - Dot Product
+    - Vector
+  - Elementwise Product
+    - Vector
+    - Scalar
 
 ## MPI Installation
 
