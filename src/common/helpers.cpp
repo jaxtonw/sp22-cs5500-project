@@ -61,13 +61,6 @@ void printDblUnion(dblUnion u)
     std::cout << "]" << std::endl;
 }
 
-/**
- * @brief Returns whether a positive value is a power of two
- *
- * @param value The value to check
- * @return true If the value is a power of 2
- * @return false If the value is not a power of 2
- */
 bool isPowerOfTwo(int value)
 {
     if (value <= 0)

@@ -1,0 +1,71 @@
+\hypertarget{matrix_prod_8h}{}\doxysection{src/matrix/matrix\+Prod.h File Reference}
+\label{matrix_prod_8h}\index{src/matrix/matrixProd.h@{src/matrix/matrixProd.h}}
+{\ttfamily \#include \char`\"{}mpi.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../common/constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../common/mpi\+Helpers.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double $\ast$ \mbox{\hyperlink{matrix_prod_8h_aa73b9601604a990f2bca1c042b7017e2}{matrix\+Product}} (double $\ast$A, uint64\+\_\+t m, uint64\+\_\+t n, double $\ast$B, uint64\+\_\+t p, MPI\+\_\+\+Comm comm)
+\item 
+double $\ast$ \mbox{\hyperlink{matrix_prod_8h_a5ef67cc945b0f7ae0789aabbf69bc585}{matrix\+Product\+Row\+By\+Row}} (double $\ast$A, uint64\+\_\+t m, uint64\+\_\+t n, double $\ast$B, uint64\+\_\+t p, MPI\+\_\+\+Comm comm)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface for parallel matrix multiplication. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{matrix_prod_8h_aa73b9601604a990f2bca1c042b7017e2}\label{matrix_prod_8h_aa73b9601604a990f2bca1c042b7017e2}} 
+\index{matrixProd.h@{matrixProd.h}!matrixProduct@{matrixProduct}}
+\index{matrixProduct@{matrixProduct}!matrixProd.h@{matrixProd.h}}
+\doxysubsubsection{\texorpdfstring{matrixProduct()}{matrixProduct()}}
+{\footnotesize\ttfamily double $\ast$ matrix\+Product (\begin{DoxyParamCaption}\item[{double $\ast$}]{A,  }\item[{uint64\+\_\+t}]{m,  }\item[{uint64\+\_\+t}]{n,  }\item[{double $\ast$}]{B,  }\item[{uint64\+\_\+t}]{p,  }\item[{MPI\+\_\+\+Comm}]{comm }\end{DoxyParamCaption})}
+
+2D Matrix -\/ 2D Matrix product. It is assumed that matrix A is m x n and matrix B is n x p. Result is a m x p matrix stored in array form.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The left matrix \\
+\hline
+{\em m} & The row count of the left matrix \\
+\hline
+{\em n} & The column count of the left matrix \\
+\hline
+{\em B} & The right matrix \\
+\hline
+{\em p} & The column count of the right matrix \\
+\hline
+{\em comm} & The current MPI\+\_\+\+Comm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{matrix_prod_8h_a5ef67cc945b0f7ae0789aabbf69bc585}\label{matrix_prod_8h_a5ef67cc945b0f7ae0789aabbf69bc585}} 
+\index{matrixProd.h@{matrixProd.h}!matrixProductRowByRow@{matrixProductRowByRow}}
+\index{matrixProductRowByRow@{matrixProductRowByRow}!matrixProd.h@{matrixProd.h}}
+\doxysubsubsection{\texorpdfstring{matrixProductRowByRow()}{matrixProductRowByRow()}}
+{\footnotesize\ttfamily double $\ast$ matrix\+Product\+Row\+By\+Row (\begin{DoxyParamCaption}\item[{double $\ast$}]{A,  }\item[{uint64\+\_\+t}]{m,  }\item[{uint64\+\_\+t}]{n,  }\item[{double $\ast$}]{B,  }\item[{uint64\+\_\+t}]{p,  }\item[{MPI\+\_\+\+Comm}]{comm }\end{DoxyParamCaption})}
+
+2D Matrix dot product with 2D Matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & The left matrix \\
+\hline
+{\em m} & The row count of the left matrix \\
+\hline
+{\em n} & The column count of the left matrix \\
+\hline
+{\em B} & The right matrix \\
+\hline
+{\em p} & The column count of the right matrix \\
+\hline
+{\em comm} & The current MPI\+\_\+\+Comm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The pointer to the result 
+\end{DoxyReturn}

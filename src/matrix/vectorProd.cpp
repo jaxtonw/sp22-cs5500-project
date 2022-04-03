@@ -5,23 +5,12 @@ void checkSendNext(uint64_t *currentIdx, uint64_t m, uint16_t rank, MPI_Comm com
     // don't overrun work if m < size
     if (*currentIdx < m)
     {
-        // cout << "sending row: " << curIdx << ", to rank: " << i << endl;
+        // std::cout << "sending row: " << curIdx << ", to rank: " << i << std::endl;
         MPI_Send(currentIdx, 1, MPI_UINT64_T, rank, 0, comm);
         *currentIdx += 1;
     }
 }
 
-/**
- * @brief 2D Matrix dot product with vector. Rank 0 delivers work and receives calculations
- *        asynchronously
- *
- * @param A The matrix
- * @param m The row count of the matrix
- * @param n The column count of the matrix
- * @param x The product vector
- * @param comm The current MPI_Comm
- * @return The pointer to the result
- */
 double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
     int rank, commSize, sendBuf, flag = 0;
@@ -57,8 +46,8 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
             // Kill process when calculated
             if (returnCounter >= m)
             {
-                // cout << "returnCounter: " << returnCounter << endl;
-                // cout << "sending poison pill" << endl;
+                // std::cout << "returnCounter: " << returnCounter << std::endl;
+                // std::cout << "sending poison pill" << std::endl;
                 sendBuf = POISON_PILL;
                 for (size_t i = 1; i < commSize; i++)
                 {
@@ -74,7 +63,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
                 if (flag)
                 {
                     returnCounter++;
-                    // cout << "returnCounter: " << returnCounter << endl;
+                    // std::cout << "returnCounter: " << returnCounter << std::endl;
 
                     uint64_t idx = vecBuf.idx;
                     uint16_t recRank = status.MPI_SOURCE;
@@ -82,7 +71,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
 
                     y[idx] = recValue;
 
-                    // cout << "value: " << recValue << ", from rank: " << recRank << ", idx: " << idx << endl;
+                    // std::cout << "value: " << recValue << ", from rank: " << recRank << ", idx: " << idx << std::endl;
 
                     checkSendNext(&curIdx, m, recRank, comm);
                     break;
@@ -115,7 +104,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
         }
     }
 
-    // cout << "rank: " << rank << " exiting" << endl;
+    // std::cout << "rank: " << rank << " exiting" << std::endl;
 
     return y;
 }
@@ -160,8 +149,8 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
             // Kill process when calculated
             if (returnCounter >= m)
             {
-                // cout << "returnCounter: " << returnCounter << endl;
-                // cout << "sending poison pill" << endl;
+                // std::cout << "returnCounter: " << returnCounter << std::endl;
+                // std::cout << "sending poison pill" << std::endl;
                 sendBuf = POISON_PILL;
                 for (size_t i = 1; i < commSize; i++)
                 {
@@ -189,7 +178,7 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
         }
 
         // #ifndef MAKE_TEST
-        //         cout << "rank: " << rank << ", startIdx: " << startIdx << ", endIdx: " << endIdx << endl;
+        //         std::cout << "rank: " << rank << ", startIdx: " << startIdx << ", endIdx: " << endIdx << std::endl;
         // #endif
 
         for (size_t j = startIdx; j < endIdx; j++)
@@ -216,21 +205,11 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
         }
     }
 
-    // cout << "rank: " << rank << " exiting" << endl;
+    // std::cout << "rank: " << rank << " exiting" << std::endl;
 
     return y;
 }
 
-/**
- * @brief 2D Matrix dot product with vector
- *
- * @param A The matrix
- * @param m The row count of the matrix
- * @param n The column count of the matrix
- * @param x The product vector
- * @param comm The current MPI_Comm
- * @return The pointer to the result
- */
 double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
     // The fastest in benchmark so far

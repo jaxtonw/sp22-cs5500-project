@@ -1,13 +1,6 @@
 #include "mpiHelpers.h"
 
-/**
- * @brief Creates a custom datatype representing an index (uint64_t),
- *        and double value (double) and commits it to MPI.
- *
- * @return MPI_Datatype
- */
-MPI_Datatype createIndexDoubleDatatype()
-{
+MPI_Datatype createIndexDoubleDatatype(){
     const int objs = 2;
     const int lengths[objs] = {1, 1};
     MPI_Datatype types[objs] = {MPI_UINT64_T, MPI_DOUBLE};

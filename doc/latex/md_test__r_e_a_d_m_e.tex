@@ -1,0 +1,46 @@
+\hypertarget{md_test__r_e_a_d_m_e_autotoc_md23}{}\doxysection{Overview}\label{md_test__r_e_a_d_m_e_autotoc_md23}
+
+\begin{DoxyEnumerate}
+\item Test is compiled with mpicxx
+\item Output file is ran with {\ttfamily mpirun -\/np 4}
+\item STDOUT from 2 is compared with test\textquotesingle{}s result file
+\end{DoxyEnumerate}\hypertarget{md_test__r_e_a_d_m_e_autotoc_md24}{}\doxysection{Test Structure}\label{md_test__r_e_a_d_m_e_autotoc_md24}
+Tests should follow the folder structure as ./src\hypertarget{md_test__r_e_a_d_m_e_autotoc_md25}{}\doxysection{Results File}\label{md_test__r_e_a_d_m_e_autotoc_md25}
+Each $\ast$.cpp requires a file called $\ast$.cpp.\+o.\+result. This result file will be compared against the output from the test run. The make function quits upon the first result file that does not match.\hypertarget{md_test__r_e_a_d_m_e_autotoc_md26}{}\doxysection{Test Compilation}\label{md_test__r_e_a_d_m_e_autotoc_md26}
+Tests are compiled with all $\ast$.cpp files found in src using {\ttfamily mpicxx -\/DMAKE\+\_\+\+TEST \texorpdfstring{$<$}{<}src-\/cpps\texorpdfstring{$>$}{>} \texorpdfstring{$<$}{<}test-\/cpp\texorpdfstring{$>$}{>}} and saved to ./testbuild with the same folder format as ./test.\hypertarget{md_test__r_e_a_d_m_e_autotoc_md27}{}\doxysection{Test Runs}\label{md_test__r_e_a_d_m_e_autotoc_md27}
+All tests are run with MPI. Use the {\ttfamily MAKE\+\_\+\+TEST} definition to wrap a single threaded test with MPI.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} **argv)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifdef MAKE\_TEST}}
+\DoxyCodeLine{    MPI\_Init(\&argc, \&argv);}
+\DoxyCodeLine{    \textcolor{keywordtype}{int} rank, commSize = 0;}
+\DoxyCodeLine{    MPI\_Comm\_rank(MPI\_COMM\_WORLD, \&rank);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (!rank)}
+\DoxyCodeLine{    \{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{        std::vector<double> testVec;}
+\DoxyCodeLine{        \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 5; i++)}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            testVec.push\_back((\textcolor{keywordtype}{double})i);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Test Vector "{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        \mbox{\hyperlink{helpers_8h_a854211cce654ddd103e127287c2240fd}{printVector}}(testVec);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Inf norm result: infNorm(testVec) = "{}} << infNorm(testVec) << std::endl;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifdef MAKE\_TEST}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_test__r_e_a_d_m_e_autotoc_md28}{}\doxysubsection{Excluding Tests}\label{md_test__r_e_a_d_m_e_autotoc_md28}
+To exclude a test, use the {\ttfamily .c++} file type. 

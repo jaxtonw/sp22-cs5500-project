@@ -3,23 +3,22 @@
 #include <mpi.h>
 #include <iostream>
 #define MCW MPI_COMM_WORLD
-using namespace std;
 
 bool assert(double actual, double expected) {
     if (actual != expected) {
-        cout << "FAIL: actual (" << actual << ") != expected (" << expected << ")" << endl;
+        std::cout << "FAIL: actual (" << actual << ") != expected (" << expected << ")" << std::endl;
         return false;
     } else {
-        cout << "PASS: result is " << actual << endl;
+        std::cout << "PASS: result is " << actual << std::endl;
         return true;
     }
 }
 
 void testDotProd(double *x, double *y, size_t length, double expected, int rank) {
     if (rank == 0) {
-		cout << "Computing dot product of " << endl;
+		std::cout << "Computing dot product of " << std::endl;
         printVectorHorizontal(x, length);
-		cout << "and" << endl;
+		std::cout << "and" << std::endl;
 		printVectorHorizontal(y, length);
     }
 
@@ -69,7 +68,7 @@ int main(int argc, char **argv)
     double start = MPI_Wtime();
 	double result = dotProduct(g, h, length, MCW);
     // if (!rank) {
-    //     cout << "Computed dot product with " << length << " values in each vector in " << MPI_Wtime() - start << " seconds!" << endl;
+    //     std::cout << "Computed dot product with " << length << " values in each vector in " << MPI_Wtime() - start << " seconds!" << std::endl;
     // }
 
     MPI_Finalize();

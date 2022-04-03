@@ -1,0 +1,115 @@
+\hypertarget{helpers_8h}{}\doxysection{src/common/helpers.h File Reference}
+\label{helpers_8h}\index{src/common/helpers.h@{src/common/helpers.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{helpers_8h_a854211cce654ddd103e127287c2240fd}{print\+Vector}} (std\+::vector$<$ double $>$ vec)
+\item 
+void \mbox{\hyperlink{helpers_8h_ab2780592360a80f92c6fde56ad37bb66}{print\+Vector}} (double $\ast$vec, int size)
+\item 
+void \mbox{\hyperlink{helpers_8h_aa5001966da1ffc63eb4849d0bffa5d08}{print\+Vector\+Horizontal}} (double $\ast$vec, int size)
+\item 
+void \mbox{\hyperlink{helpers_8h_a6da68c3469a0db81063d60e51c6a4df6}{print\+Matrix2D}} (double $\ast$matrix, int m, int n)
+\item 
+bool \mbox{\hyperlink{helpers_8h_a58816314368da82a4508facf99248989}{is\+Power\+Of\+Two}} (int value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helper functions for working with matrices and vectors.
+
+This header file describes the interface for each of our helpers, these may be useful when debugging and testing functions from the SPLARF library. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{helpers_8h_a58816314368da82a4508facf99248989}\label{helpers_8h_a58816314368da82a4508facf99248989}} 
+\index{helpers.h@{helpers.h}!isPowerOfTwo@{isPowerOfTwo}}
+\index{isPowerOfTwo@{isPowerOfTwo}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{isPowerOfTwo()}{isPowerOfTwo()}}
+{\footnotesize\ttfamily bool is\+Power\+Of\+Two (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+Returns whether a positive value is a power of two
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The value to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the value is a power of 2 
+
+false If the value is not a power of 2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{helpers_8h_a6da68c3469a0db81063d60e51c6a4df6}\label{helpers_8h_a6da68c3469a0db81063d60e51c6a4df6}} 
+\index{helpers.h@{helpers.h}!printMatrix2D@{printMatrix2D}}
+\index{printMatrix2D@{printMatrix2D}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{printMatrix2D()}{printMatrix2D()}}
+{\footnotesize\ttfamily void print\+Matrix2D (\begin{DoxyParamCaption}\item[{double $\ast$}]{matrix,  }\item[{int}]{m,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+Prints 2D a matrix to standard out
+
+
+\begin{DoxyParams}{Parameters}
+{\em matrix} & a pointer to the 2d array of doubles \\
+\hline
+{\em m} & number of rows in the matrix \\
+\hline
+{\em n} & number of columns in the matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{helpers_8h_ab2780592360a80f92c6fde56ad37bb66}\label{helpers_8h_ab2780592360a80f92c6fde56ad37bb66}} 
+\index{helpers.h@{helpers.h}!printVector@{printVector}}
+\index{printVector@{printVector}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{printVector()}{printVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void print\+Vector (\begin{DoxyParamCaption}\item[{double $\ast$}]{vec,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Prints a vector to standard out vertically
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & a pointer to the array of doubles \\
+\hline
+{\em size} & integer representing the size of the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{helpers_8h_a854211cce654ddd103e127287c2240fd}\label{helpers_8h_a854211cce654ddd103e127287c2240fd}} 
+\index{helpers.h@{helpers.h}!printVector@{printVector}}
+\index{printVector@{printVector}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{printVector()}{printVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void print\+Vector (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{vec }\end{DoxyParamCaption})}
+
+Prints a vector to standard out
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & a std\+::vector of doubles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}
+\mbox{\Hypertarget{helpers_8h_aa5001966da1ffc63eb4849d0bffa5d08}\label{helpers_8h_aa5001966da1ffc63eb4849d0bffa5d08}} 
+\index{helpers.h@{helpers.h}!printVectorHorizontal@{printVectorHorizontal}}
+\index{printVectorHorizontal@{printVectorHorizontal}!helpers.h@{helpers.h}}
+\doxysubsubsection{\texorpdfstring{printVectorHorizontal()}{printVectorHorizontal()}}
+{\footnotesize\ttfamily void print\+Vector\+Horizontal (\begin{DoxyParamCaption}\item[{double $\ast$}]{vec,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+Prints a vector to standard out horizontally
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & a pointer to the array of doubles \\
+\hline
+{\em size} & integer representing the size of the vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+nothing 
+\end{DoxyReturn}

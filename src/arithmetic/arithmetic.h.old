@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include <mpi.h>
 #include <stdio.h>
@@ -5,7 +6,6 @@
 #include <ctime>
 #include <iostream>
 #include <vector>
-using namespace std;
 
 
 
@@ -24,3 +24,4 @@ vector<double> recv_vector(int sender);
 void send_vector(int dest, const vector<double>& vec);
 
 
+*/

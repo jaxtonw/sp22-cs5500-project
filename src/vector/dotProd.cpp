@@ -4,15 +4,14 @@
 #include <cmath>
 #define MCW MPI_COMM_WORLD
 
-using namespace std;
 
 /**
- * @brief helper function - computes the dot product within a certain range
+ * helper function - computes the dot product within a certain range
  *
  * @param x Input Vector 1
  * @param y Input Vector 2
  * @param range sub-range (inclusive) of original vectors to compute dot product for - [start, end]
- * @return The shared_ptr pointer to the result
+ * @return the resulting sub dot product (scalar)
  */
 double partialDotProduct(double *x, double *y, int *range) {
     int sum = 0;
@@ -22,14 +21,6 @@ double partialDotProduct(double *x, double *y, int *range) {
     return sum;
 }
 
-/**
- * @brief Vector * Vector Dot product
- *
- * @param x Input Vector 1
- * @param y Input Vector 2
- * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
- */
 double dotProduct(double *x, double *y, size_t length, MPI_Comm comm)
 {
     int rank, commSize;
@@ -58,7 +49,7 @@ double dotProduct(double *x, double *y, size_t length, MPI_Comm comm)
                 remainder--;
             }
             partition[1] = partitionEnd;
-            // cout << i << ": partition start: "<< partitionStart << ", partition end: " << partitionEnd << endl;
+            // std::cout << i << ": partition start: "<< partitionStart << ", partition end: " << partitionEnd << std::endl;
             if (i == 0) {
                 subRange[0] = partitionStart;
                 subRange[1] = partitionEnd;
@@ -72,7 +63,7 @@ double dotProduct(double *x, double *y, size_t length, MPI_Comm comm)
     }
 
     double subRangeSum = partialDotProduct(x, y, subRange);
-    // cout << rank << ": subrange sum is " << subRangeSum << endl;
+    // std::cout << rank << ": subrange sum is " << subRangeSum << std::endl;
     MPI_Allreduce(&subRangeSum,&result,1,MPI_DOUBLE,MPI_SUM,MCW);
 
     return result;
