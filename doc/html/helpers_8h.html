@@ -69,6 +69,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">helpers.h File Reference</div>  </div>
@@ -79,6 +80,12 @@ $(function() {
 </div>
 <p><a href="helpers_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uniondbl_union.html">dblUnion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow for indexes to be packed into doubles without loss.  <a href="uniondbl_union.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a854211cce654ddd103e127287c2240fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a854211cce654ddd103e127287c2240fd">printVector</a> (std::vector&lt; double &gt; vec)</td></tr>
@@ -91,6 +98,9 @@ Functions</h2></td></tr>
 <tr class="separator:a6da68c3469a0db81063d60e51c6a4df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58816314368da82a4508facf99248989"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a58816314368da82a4508facf99248989">isPowerOfTwo</a> (int value)</td></tr>
 <tr class="separator:a58816314368da82a4508facf99248989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa78d4b38a52c95490d6d70ed8cf51a45"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#aa78d4b38a52c95490d6d70ed8cf51a45">printDblUnion</a> (<a class="el" href="uniondbl_union.html">dblUnion</a> u)</td></tr>
+<tr class="memdesc:aa78d4b38a52c95490d6d70ed8cf51a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the current value of a <a class="el" href="uniondbl_union.html" title="A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow f...">dblUnion</a> as a double, uint64, int64, and uint8* of size 8.  <a href="helpers_8h.html#aa78d4b38a52c95490d6d70ed8cf51a45">More...</a><br /></td></tr>
+<tr class="separator:aa78d4b38a52c95490d6d70ed8cf51a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Helper functions for working with matrices and vectors.</p>
@@ -121,6 +131,32 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>true If the value is a power of 2 </dd>
 <dd>
 false If the value is not a power of 2 </dd></dl>
+
+</div>
+</div>
+<a id="aa78d4b38a52c95490d6d70ed8cf51a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa78d4b38a52c95490d6d70ed8cf51a45">&#9670;&nbsp;</a></span>printDblUnion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printDblUnion </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="uniondbl_union.html">dblUnion</a>&#160;</td>
+          <td class="paramname"><em>u</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints the current value of a <a class="el" href="uniondbl_union.html" title="A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow f...">dblUnion</a> as a double, uint64, int64, and uint8* of size 8. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>The <a class="el" href="uniondbl_union.html" title="A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow f...">dblUnion</a> to print </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

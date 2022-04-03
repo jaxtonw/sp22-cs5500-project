@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ispoweroftwo_34',['isPowerOfTwo',['../helpers_8h.html#a58816314368da82a4508facf99248989',1,'helpers.cpp']]]
+  ['dotproduct_50',['dotProduct',['../vector_2vector_prod_8h.html#a861eae6b2dbf56f0c4f724c986aeca38',1,'dotProd.cpp']]]
 ];

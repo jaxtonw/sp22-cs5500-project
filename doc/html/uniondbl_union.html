@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SPLARF: Class Index</title>
+<title>SPLARF: dblUnion Union Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -48,7 +48,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -63,20 +62,41 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="uniondbl_union-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Class Index</div>  </div>
+<div class="title">dblUnion Union Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="qindex"><a class="qindex" href="#letter_D">D</a>&#160;|&#160;<a class="qindex" href="#letter_I">I</a></div>
-<div class="classindex">
-<dl class="classindex even">
-<dt class="alphachar"><a name="letter_D">D</a></dt>
-<dd><a class="el" href="uniondbl_union.html">dblUnion</a></dd></dl>
-<dl class="classindex odd">
-<dt class="alphachar"><a name="letter_I">I</a></dt>
-<dd><a class="el" href="structindex_double_struct.html">indexDoubleStruct</a></dd></dl>
-</div>
+
+<p>A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow for indexes to be packed into doubles without loss.  
+ <a href="uniondbl_union.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="helpers_8h_source.html">helpers.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a131cc72e265fa31372b4c0f62055a7aa"><td class="memItemLeft" align="right" valign="top"><a id="a131cc72e265fa31372b4c0f62055a7aa"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>dbl</b></td></tr>
+<tr class="separator:a131cc72e265fa31372b4c0f62055a7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ddc915e39960e2bceed6808ebf5919b"><td class="memItemLeft" align="right" valign="top"><a id="a6ddc915e39960e2bceed6808ebf5919b"></a>
+uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>uint64</b></td></tr>
+<tr class="separator:a6ddc915e39960e2bceed6808ebf5919b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace0fe031cad6d10c09c78ebf6120831e"><td class="memItemLeft" align="right" valign="top"><a id="ace0fe031cad6d10c09c78ebf6120831e"></a>
+int64_t&#160;</td><td class="memItemRight" valign="bottom"><b>int64</b></td></tr>
+<tr class="separator:ace0fe031cad6d10c09c78ebf6120831e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a03c047ae8dde132afb957bf64ae3d9"><td class="memItemLeft" align="right" valign="top"><a id="a0a03c047ae8dde132afb957bf64ae3d9"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>uint8</b> [sizeof(double)]</td></tr>
+<tr class="separator:a0a03c047ae8dde132afb957bf64ae3d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow for indexes to be packed into doubles without loss. </p>
+</div><hr/>The documentation for this union was generated from the following file:<ul>
+<li>src/common/<a class="el" href="helpers_8h_source.html">helpers.h</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
