@@ -17,6 +17,8 @@ vector<vector<double>> element_multiply(int rank, int size,
     vector<vector<double>> a, double b);
 vector<vector<double>> transpose(int rank, int size,
     vector<vector<double>> a);
+pair<vector<vector<double>>, vector<vector<double>>> ludecomp(int rank, int size,
+    vector<vector<double>> a)
 void delay(int num);
 //this code was found on http://skinderowicz.pl/static/pw2/MPI-tutorial.html
 vector<double> recv_vector(int sender);
