@@ -1,7 +1,7 @@
 #include "./addition.h"
 
 
-double *matricesSumPreDetermined(double *A, double *B, int m, int n, MPI_Comm comm)
+double *matrixScalarSumPreDetermined(double *A, double x, int n, int m, MPI_Comm comm)
 {
     int rank, commSize = 0;
 
@@ -62,7 +62,7 @@ double *matricesSumPreDetermined(double *A, double *B, int m, int n, MPI_Comm co
             for (size_t c = 0; c < n; c++)
             {
                 // Offset the buff by 1 for index
-                buf[c] = A[curRow * n + c] + B[curRow * n + c];
+                buf[c] = A[curRow * n + c] + x;
             }
 
             MPI_Send(buf, n + 1, MPI_DOUBLE, 0, 0, comm);
@@ -74,7 +74,7 @@ double *matricesSumPreDetermined(double *A, double *B, int m, int n, MPI_Comm co
     return C;
 }
 
-double *addMatrices(double *A, double *B, int m, int n, MPI_Comm comm)
+double *addScalarToMatrix(double *A, double x, int n, int m, MPI_Comm comm)
 {
-    return matricesSumPreDetermined(A, B, m, n, comm);
+    return matrixScalarSumPreDetermined(A, x, m, n, comm);
 }
