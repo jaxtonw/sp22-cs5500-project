@@ -1,6 +1,5 @@
 #include "./addition.h"
 
-
 double *matricesSubPreDetermined(double *A, double *B, int m, int n, MPI_Comm comm)
 {
     int rank, commSize = 0;
@@ -49,7 +48,6 @@ double *matricesSubPreDetermined(double *A, double *B, int m, int n, MPI_Comm co
         {
             endIdx = m;
         }
-
 
         for (size_t curRow = startIdx; curRow < endIdx; curRow++)
         {

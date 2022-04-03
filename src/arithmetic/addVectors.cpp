@@ -1,14 +1,5 @@
 #include "./addition.h"
 
-/**
- * @brief Sum two vectors together. Return summed vector on Rank 0.
- *
- * @param a vector a
- * @param b vector b
- * @param n The length of vector a and b
- * @param comm The current MPI_Comm
- * @return The pointer to the result
- */
 double *vectorsSumPreDetermined(double *a, double *b, int n, MPI_Comm comm)
 {
     int rank, commSize = 0;

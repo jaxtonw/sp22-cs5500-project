@@ -1,6 +1,5 @@
 #include "./addition.h"
 
-
 double *vectorScalarSubPreDetermined(double *a, double x, int n, MPI_Comm comm)
 {
     int rank, commSize = 0;

@@ -1,6 +1,5 @@
 #include "./addition.h"
 
-
 double *matrixScalarSumPreDetermined(double *A, double x, int n, int m, MPI_Comm comm)
 {
     int rank, commSize = 0;
@@ -49,7 +48,6 @@ double *matrixScalarSumPreDetermined(double *A, double x, int n, int m, MPI_Comm
         {
             endIdx = m;
         }
-
 
         for (size_t curRow = startIdx; curRow < endIdx; curRow++)
         {
