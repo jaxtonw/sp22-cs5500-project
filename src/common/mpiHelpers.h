@@ -10,18 +10,22 @@
 #include "mpi.h"
 #include <iostream>
 
+/**
+ * @brief A struct holding holds a uint64 index and
+ *        double value.
+ */
 struct indexDoubleStruct
 {
     uint64_t idx;
     double value;
 };
 
-struct indexDoubleSliceStruct
-{
-    uint64_t idx;
-    uint64_t len;
-    double* value;
-};
+/**
+ * @brief Prints an indexDoubleStruct to standard out.
+ * 
+ * @param s The indexDoubleStruct to print.
+ */
+void printStruct(indexDoubleStruct s);
 
 /**
  * Creates a custom datatype representing an index (uint64_t),
@@ -30,15 +34,5 @@ struct indexDoubleSliceStruct
  * @return MPI_Datatype
  */
 MPI_Datatype createIndexDoubleDatatype();
-
-/**
- * Creates a custom datatype representing an index (uint64_t),
- * slice length (uint64_t) and array of double values (*double)
- * and commits it to MPI.
- *
- * @param length 
- * @return MPI_Datatype
- */
-MPI_Datatype createIndexDoubleSliceDatatype(int length);
 
 #endif

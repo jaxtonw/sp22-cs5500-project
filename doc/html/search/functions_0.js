@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['createindexdoubledatatype_31',['createIndexDoubleDatatype',['../mpi_helpers_8h.html#aa574bb1e6ac0d7b2fdeed551c1f04d7c',1,'mpiHelpers.cpp']]],
-  ['createindexdoubleslicedatatype_32',['createIndexDoubleSliceDatatype',['../mpi_helpers_8h.html#aaa55733ee6365cc6d1119fc9cc84db44',1,'mpiHelpers.cpp']]]
+  ['addmatrices_45',['addMatrices',['../arithmetic_8h.html#a50f8512f23aa569f90965de351894650',1,'addMatrices.cpp']]],
+  ['addscalartomatrix_46',['addScalarToMatrix',['../arithmetic_8h.html#a70b48e9ab8191c550619530310863c72',1,'addScalarToMatrix.cpp']]],
+  ['addscalartovector_47',['addScalarToVector',['../arithmetic_8h.html#a73c1958d4966e4e327c364446696dcb5',1,'addScalarToVector.cpp']]],
+  ['addvectors_48',['addVectors',['../arithmetic_8h.html#a4c58ba3abd7d662878c37fffb48fc268',1,'addVectors.cpp']]]
 ];

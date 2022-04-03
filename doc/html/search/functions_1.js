@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dotproduct_33',['dotProduct',['../dot_prod_8h.html#a861eae6b2dbf56f0c4f724c986aeca38',1,'dotProd.cpp']]]
+  ['createindexdoubledatatype_49',['createIndexDoubleDatatype',['../mpi_helpers_8h.html#aa574bb1e6ac0d7b2fdeed551c1f04d7c',1,'mpiHelpers.cpp']]]
 ];

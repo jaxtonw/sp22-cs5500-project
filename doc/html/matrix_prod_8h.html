@@ -76,6 +76,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;mpi.h&quot;</code><br />
 <code>#include &quot;../common/constants.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="helpers_8h_source.html">../common/helpers.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mpi_helpers_8h_source.html">../common/mpiHelpers.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 </div>
@@ -87,10 +88,70 @@ Functions</h2></td></tr>
 <tr class="separator:a352ca95b8b7905a725b9594631fd2d8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61d5dfb9c2ae12e4601eff53ae9cd7df"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_prod_8h.html#a61d5dfb9c2ae12e4601eff53ae9cd7df">matrixProductRowByRow</a> (double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)</td></tr>
 <tr class="separator:a61d5dfb9c2ae12e4601eff53ae9cd7df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba4d502264f65e759dcd87f187b728e"><td class="memItemLeft" align="right" valign="top">double *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="matrix_prod_8h.html#a4ba4d502264f65e759dcd87f187b728e">matrixElementwiseProd</a> (double *A, double *B, int m, int n, MPI_Comm comm)</td></tr>
+<tr class="separator:a4ba4d502264f65e759dcd87f187b728e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for parallel matrix multiplication. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a4ba4d502264f65e759dcd87f187b728e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba4d502264f65e759dcd87f187b728e">&#9670;&nbsp;</a></span>matrixElementwiseProd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double* matrixElementwiseProd </td>
+          <td>(</td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>A</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *&#160;</td>
+          <td class="paramname"><em>B</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MPI_Comm&#160;</td>
+          <td class="paramname"><em>comm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>An elementwise product of two equally sized matrices.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A</td><td>The A matrix </td></tr>
+    <tr><td class="paramname">B</td><td>The B matrix </td></tr>
+    <tr><td class="paramname">m</td><td>The row count of both matrices </td></tr>
+    <tr><td class="paramname">n</td><td>The column count of both matrices </td></tr>
+    <tr><td class="paramname">comm</td><td>The current MPI_Comm </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The pointer to the result </dd></dl>
+
+</div>
+</div>
 <a id="a352ca95b8b7905a725b9594631fd2d8a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a352ca95b8b7905a725b9594631fd2d8a">&#9670;&nbsp;</a></span>matrixProduct()</h2>
 

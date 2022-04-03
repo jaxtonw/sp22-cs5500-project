@@ -8,7 +8,7 @@ MPI_Datatype createIndexDoubleDatatype(){
 
     // The displacement is the size of the last variables
     // e.g., start @ 0, uint64_t is 8 bytes
-    MPI_Aint displacements[objs] = {0, 8}; 
+    MPI_Aint displacements[objs] = {0, 8};
 
     // Generate the MPI Type struct with the following info:
     // - The number of objects
@@ -24,29 +24,9 @@ MPI_Datatype createIndexDoubleDatatype(){
     return indexDoubleDatatype;
 }
 
-MPI_Datatype createIndexDoubleSliceDatatype(int length)
+void printStruct(indexDoubleStruct indexDouble)
 {
-    const int objs = 3;
-    const int lengths[objs] = {1, 1, length};
-    MPI_Datatype types[objs] = {MPI_UINT64_T, MPI_UINT64_T, MPI_DOUBLE};
-    MPI_Datatype indexDoubleSliceDatatype;
-
-    // The displacement is the size of the last variables
-    // e.g., start @ 0, uint64_t is 8 bytes, uint64_t is 8 bytes + 8 prev bytes
-    MPI_Aint displacements[objs] = {0, 8, 16};
-
-    // Generate the MPI Type struct with the following info:
-    // - The number of objects
-    // - An array containing the number of each primitive
-    // - The displacements (byte size) of each primitive
-    // - An array containing the MPI primitive types
-    // - The pointer to the to-be-created type
-    MPI_Type_create_struct(objs, lengths, displacements, types, &indexDoubleSliceDatatype);
-
-    // Commit the new type to MPI
-    MPI_Type_commit(&indexDoubleSliceDatatype);
-
-    return indexDoubleSliceDatatype;
+    std::cout << "idx: " << indexDouble.idx << ", value: " << indexDouble.value << ", val";
 }
 
 #ifdef CUSTOM_DATATYPE_TEST

@@ -79,28 +79,20 @@ $(function() {
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;mpi.h&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structindex_double_struct.html">   13</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structindex_double_struct.html">indexDoubleStruct</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    uint64_t idx;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">double</span> value;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structindex_double_slice_struct.html">   19</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structindex_double_slice_struct.html">indexDoubleSliceStruct</a></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    uint64_t idx;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    uint64_t len;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">double</span>* value;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;MPI_Datatype <a class="code" href="mpi_helpers_8h.html#aa574bb1e6ac0d7b2fdeed551c1f04d7c">createIndexDoubleDatatype</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;MPI_Datatype <a class="code" href="mpi_helpers_8h.html#aaa55733ee6365cc6d1119fc9cc84db44">createIndexDoubleSliceDatatype</a>(<span class="keywordtype">int</span> length);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structindex_double_struct.html">   17</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structindex_double_struct.html">indexDoubleStruct</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    uint64_t idx;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">double</span> value;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;};</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="mpi_helpers_8h.html#ab00638314c5689aecb70ce450d8f2616">printStruct</a>(<a class="code" href="structindex_double_struct.html">indexDoubleStruct</a> s);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;MPI_Datatype <a class="code" href="mpi_helpers_8h.html#aa574bb1e6ac0d7b2fdeed551c1f04d7c">createIndexDoubleDatatype</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="ampi_helpers_8h_html_aa574bb1e6ac0d7b2fdeed551c1f04d7c"><div class="ttname"><a href="mpi_helpers_8h.html#aa574bb1e6ac0d7b2fdeed551c1f04d7c">createIndexDoubleDatatype</a></div><div class="ttdeci">MPI_Datatype createIndexDoubleDatatype()</div><div class="ttdef"><b>Definition:</b> mpiHelpers.cpp:3</div></div>
-<div class="ttc" id="ampi_helpers_8h_html_aaa55733ee6365cc6d1119fc9cc84db44"><div class="ttname"><a href="mpi_helpers_8h.html#aaa55733ee6365cc6d1119fc9cc84db44">createIndexDoubleSliceDatatype</a></div><div class="ttdeci">MPI_Datatype createIndexDoubleSliceDatatype(int length)</div><div class="ttdef"><b>Definition:</b> mpiHelpers.cpp:27</div></div>
-<div class="ttc" id="astructindex_double_slice_struct_html"><div class="ttname"><a href="structindex_double_slice_struct.html">indexDoubleSliceStruct</a></div><div class="ttdef"><b>Definition:</b> mpiHelpers.h:20</div></div>
-<div class="ttc" id="astructindex_double_struct_html"><div class="ttname"><a href="structindex_double_struct.html">indexDoubleStruct</a></div><div class="ttdef"><b>Definition:</b> mpiHelpers.h:14</div></div>
+<div class="ttc" id="ampi_helpers_8h_html_ab00638314c5689aecb70ce450d8f2616"><div class="ttname"><a href="mpi_helpers_8h.html#ab00638314c5689aecb70ce450d8f2616">printStruct</a></div><div class="ttdeci">void printStruct(indexDoubleStruct s)</div><div class="ttdoc">Prints an indexDoubleStruct to standard out.</div><div class="ttdef"><b>Definition:</b> mpiHelpers.cpp:27</div></div>
+<div class="ttc" id="astructindex_double_struct_html"><div class="ttname"><a href="structindex_double_struct.html">indexDoubleStruct</a></div><div class="ttdoc">A struct holding holds a uint64 index and double value.</div><div class="ttdef"><b>Definition:</b> mpiHelpers.h:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

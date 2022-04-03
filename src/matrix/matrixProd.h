@@ -1,6 +1,6 @@
 /**
  * @file
- * 
+ *
  * Interface for parallel matrix multiplication.
  */
 #ifndef MATRIX_PROD_H
@@ -8,6 +8,7 @@
 
 #include "mpi.h"
 #include "../common/constants.h"
+#include "../common/helpers.h"
 #include "../common/mpiHelpers.h"
 #include <iostream>
 
@@ -38,4 +39,15 @@ double *matrixProduct(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, 
  */
 double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm);
 
+/**
+ * An elementwise product of two equally sized matrices.
+ *
+ * @param A The A matrix
+ * @param B The B matrix
+ * @param m The row count of both matrices
+ * @param n The column count of both matrices
+ * @param comm The current MPI_Comm
+ * @return The pointer to the result
+ */
+double *matrixElementwiseProd(double *A, double *B, int m, int n, MPI_Comm comm);
 #endif

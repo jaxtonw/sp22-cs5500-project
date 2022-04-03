@@ -83,16 +83,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structindex_double_struct.html">indexDoubleStruct</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structindex_double_slice_struct.html">indexDoubleSliceStruct</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct holding holds a uint64 index and double value.  <a href="structindex_double_struct.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ab00638314c5689aecb70ce450d8f2616"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpi_helpers_8h.html#ab00638314c5689aecb70ce450d8f2616">printStruct</a> (<a class="el" href="structindex_double_struct.html">indexDoubleStruct</a> s)</td></tr>
+<tr class="memdesc:ab00638314c5689aecb70ce450d8f2616"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints an <a class="el" href="structindex_double_struct.html" title="A struct holding holds a uint64 index and double value.">indexDoubleStruct</a> to standard out.  <a href="mpi_helpers_8h.html#ab00638314c5689aecb70ce450d8f2616">More...</a><br /></td></tr>
+<tr class="separator:ab00638314c5689aecb70ce450d8f2616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa574bb1e6ac0d7b2fdeed551c1f04d7c"><td class="memItemLeft" align="right" valign="top">MPI_Datatype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpi_helpers_8h.html#aa574bb1e6ac0d7b2fdeed551c1f04d7c">createIndexDoubleDatatype</a> ()</td></tr>
 <tr class="separator:aa574bb1e6ac0d7b2fdeed551c1f04d7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa55733ee6365cc6d1119fc9cc84db44"><td class="memItemLeft" align="right" valign="top">MPI_Datatype&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mpi_helpers_8h.html#aaa55733ee6365cc6d1119fc9cc84db44">createIndexDoubleSliceDatatype</a> (int length)</td></tr>
-<tr class="separator:aaa55733ee6365cc6d1119fc9cc84db44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Helper functions for creating custom MPI data types. </p>
@@ -116,29 +116,29 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aaa55733ee6365cc6d1119fc9cc84db44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa55733ee6365cc6d1119fc9cc84db44">&#9670;&nbsp;</a></span>createIndexDoubleSliceDatatype()</h2>
+<a id="ab00638314c5689aecb70ce450d8f2616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab00638314c5689aecb70ce450d8f2616">&#9670;&nbsp;</a></span>printStruct()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">MPI_Datatype createIndexDoubleSliceDatatype </td>
+          <td class="memname">void printStruct </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>length</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structindex_double_struct.html">indexDoubleStruct</a>&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a custom datatype representing an index (uint64_t), slice length (uint64_t) and array of double values (*double) and commits it to MPI.</p>
+
+<p>Prints an <a class="el" href="structindex_double_struct.html" title="A struct holding holds a uint64 index and double value.">indexDoubleStruct</a> to standard out. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">length</td><td></td></tr>
+    <tr><td class="paramname">s</td><td>The <a class="el" href="structindex_double_struct.html" title="A struct holding holds a uint64 index and double value.">indexDoubleStruct</a> to print. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>MPI_Datatype </dd></dl>
 
 </div>
 </div>

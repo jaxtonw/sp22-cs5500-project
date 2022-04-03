@@ -78,15 +78,18 @@ $(function() {
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;mpi.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../common/constants.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../common/mpiHelpers.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">double</span> *<a class="code" href="matrix_prod_8h.html#a352ca95b8b7905a725b9594631fd2d8a">matrixProduct</a>(<span class="keywordtype">double</span> *A, uint64_t m, uint64_t n, <span class="keywordtype">double</span> *B, uint64_t p, MPI_Comm comm);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">double</span> *<a class="code" href="matrix_prod_8h.html#a61d5dfb9c2ae12e4601eff53ae9cd7df">matrixProductRowByRow</a>(<span class="keywordtype">double</span> *A, uint64_t m, uint64_t n, <span class="keywordtype">double</span> *B, uint64_t p, MPI_Comm comm);</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;../common/helpers.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;../common/mpiHelpers.h&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">double</span> *<a class="code" href="matrix_prod_8h.html#a352ca95b8b7905a725b9594631fd2d8a">matrixProduct</a>(<span class="keywordtype">double</span> *A, uint64_t m, uint64_t n, <span class="keywordtype">double</span> *B, uint64_t p, MPI_Comm comm);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">double</span> *<a class="code" href="matrix_prod_8h.html#a61d5dfb9c2ae12e4601eff53ae9cd7df">matrixProductRowByRow</a>(<span class="keywordtype">double</span> *A, uint64_t m, uint64_t n, <span class="keywordtype">double</span> *B, uint64_t p, MPI_Comm comm);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">double</span> *<a class="code" href="matrix_prod_8h.html#a4ba4d502264f65e759dcd87f187b728e">matrixElementwiseProd</a>(<span class="keywordtype">double</span> *A, <span class="keywordtype">double</span> *B, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> n, MPI_Comm comm);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="amatrix_prod_8h_html_a352ca95b8b7905a725b9594631fd2d8a"><div class="ttname"><a href="matrix_prod_8h.html#a352ca95b8b7905a725b9594631fd2d8a">matrixProduct</a></div><div class="ttdeci">double * matrixProduct(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)</div><div class="ttdef"><b>Definition:</b> matrixProd.cpp:126</div></div>
+<div class="ttc" id="amatrix_prod_8h_html_a4ba4d502264f65e759dcd87f187b728e"><div class="ttname"><a href="matrix_prod_8h.html#a4ba4d502264f65e759dcd87f187b728e">matrixElementwiseProd</a></div><div class="ttdeci">double * matrixElementwiseProd(double *A, double *B, int m, int n, MPI_Comm comm)</div><div class="ttdef"><b>Definition:</b> elementwiseProd.cpp:75</div></div>
 <div class="ttc" id="amatrix_prod_8h_html_a61d5dfb9c2ae12e4601eff53ae9cd7df"><div class="ttname"><a href="matrix_prod_8h.html#a61d5dfb9c2ae12e4601eff53ae9cd7df">matrixProductRowByRow</a></div><div class="ttdeci">double * matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)</div><div class="ttdef"><b>Definition:</b> matrixProd.cpp:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

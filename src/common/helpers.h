@@ -13,6 +13,20 @@
 #include <vector>
 
 /**
+ * @brief A union used to bytewise convert a 
+ * double/uint64/int64/uint8* back and forth.
+ * Used for MPI to allow for indexes to be packed
+ * into doubles without loss. 
+ */
+union dblUnion
+{
+    double dbl;
+    uint64_t uint64;
+    int64_t int64;
+    uint8_t uint8[sizeof(double)];
+};
+
+/**
  * Prints a vector to standard out
  *
  * @param vec a std::vector of doubles
@@ -56,5 +70,14 @@ void printMatrix2D(double *matrix, int m, int n);
  * @return false If the value is not a power of 2
  */
 bool isPowerOfTwo(int value);
+
+
+/**
+ * @brief Prints the current value of a dblUnion as
+ *        a double, uint64, int64, and uint8* of size 8
+ * 
+ * @param u The dblUnion to print
+ */
+void printDblUnion(dblUnion u);
 
 #endif

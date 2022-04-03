@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['printmatrix2d_37',['printMatrix2D',['../helpers_8h.html#a6da68c3469a0db81063d60e51c6a4df6',1,'helpers.cpp']]],
-  ['printvector_38',['printVector',['../helpers_8h.html#a854211cce654ddd103e127287c2240fd',1,'printVector(std::vector&lt; double &gt; vec):&#160;helpers.cpp'],['../helpers_8h.html#ab2780592360a80f92c6fde56ad37bb66',1,'printVector(double *vec, int size):&#160;helpers.cpp']]],
-  ['printvectorhorizontal_39',['printVectorHorizontal',['../helpers_8h.html#aa5001966da1ffc63eb4849d0bffa5d08',1,'helpers.cpp']]]
+  ['matrixelementwiseprod_52',['matrixElementwiseProd',['../matrix_prod_8h.html#a4ba4d502264f65e759dcd87f187b728e',1,'elementwiseProd.cpp']]],
+  ['matrixproduct_53',['matrixProduct',['../matrix_prod_8h.html#a352ca95b8b7905a725b9594631fd2d8a',1,'matrixProd.cpp']]],
+  ['matrixproductrowbyrow_54',['matrixProductRowByRow',['../matrix_prod_8h.html#a61d5dfb9c2ae12e4601eff53ae9cd7df',1,'matrixProd.cpp']]]
 ];
