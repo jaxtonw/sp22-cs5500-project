@@ -1,4 +1,4 @@
-#include "../../src/arithmetic/addition.h"
+#include "../../src/arithmetic/arithmetic.h"
 #include "../../src/common/helpers.h"
 #include <mpi.h>
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
     int m = 4;
     int n = 6;
 
-    double *result = addMatrices(A, B, m, n, MCW);
+    double *result = subMatrices(A, B, m, n, MCW);
 
     MPI_Barrier(MCW);
     if (rank == 0)

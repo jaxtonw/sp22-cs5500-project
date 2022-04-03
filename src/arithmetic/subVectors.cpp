@@ -1,6 +1,6 @@
-#include "./addition.h"
+#include "./arithmetic.h"
 
-double *vectorsSubPreDetermined(double *a, double b, int n, MPI_Comm comm)
+double *vectorsSubPreDetermined(double *a, double *b, int n, MPI_Comm comm)
 {
     int rank, commSize = 0;
     MPI_Comm_rank(comm, &rank);
@@ -68,7 +68,7 @@ double *vectorsSubPreDetermined(double *a, double b, int n, MPI_Comm comm)
 
         for (size_t i = 0; i < length; i++)
         {
-            buf[i] = a[startIdx + i] - b;
+            buf[i] = a[startIdx + i] - b[startIdx + i];
         }
 
         MPI_Send(buf, bufSize, MPI_DOUBLE, 0, 0, comm);
@@ -79,7 +79,7 @@ double *vectorsSubPreDetermined(double *a, double b, int n, MPI_Comm comm)
     return c;
 }
 
-double *subVectorsSequential(double *a, double b, int m, MPI_Comm comm)
+double *subVectorsSequential(double *a, double *b, int m, MPI_Comm comm)
 {
     int rank, commSize = 0;
 
@@ -92,13 +92,13 @@ double *subVectorsSequential(double *a, double b, int m, MPI_Comm comm)
         c = new double[m];
         for (size_t i = 0; i < m; i++)
         {
-            c[i] = a[i] - b;
+            c[i] = a[i] - b[i];
         }
     }
     return c;
 }
 
-double *subVectors(double *a, double b, int m, MPI_Comm comm)
+double *subVectors(double *a, double *b, int m, MPI_Comm comm)
 {
     // TODO: Find best value to not worry about parallel calcs
     if (m < 100)

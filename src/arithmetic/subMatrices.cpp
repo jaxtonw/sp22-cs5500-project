@@ -1,4 +1,4 @@
-#include "./addition.h"
+#include "./arithmetic.h"
 
 double *matricesSubPreDetermined(double *A, double *B, int m, int n, MPI_Comm comm)
 {

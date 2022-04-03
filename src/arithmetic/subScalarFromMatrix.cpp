@@ -1,6 +1,6 @@
 #include "./arithmetic.h"
 
-double *matrixScalarSumPreDetermined(double *A, double x, int n, int m, MPI_Comm comm)
+double *matrixScalarSubPreDetermined(double *A, double x, int n, int m, MPI_Comm comm)
 {
     int rank, commSize = 0;
 
@@ -60,7 +60,7 @@ double *matrixScalarSumPreDetermined(double *A, double x, int n, int m, MPI_Comm
             for (size_t c = 0; c < n; c++)
             {
                 // Offset the buff by 1 for index
-                buf[c] = A[curRow * n + c] + x;
+                buf[c] = A[curRow * n + c] - x;
             }
 
             MPI_Send(buf, n + 1, MPI_DOUBLE, 0, 0, comm);
@@ -72,7 +72,7 @@ double *matrixScalarSumPreDetermined(double *A, double x, int n, int m, MPI_Comm
     return C;
 }
 
-double *addScalarToMatrix(double *A, double x, int n, int m, MPI_Comm comm)
+double *subScalarFromMatrix(double *A, double x, int n, int m, MPI_Comm comm)
 {
-    return matrixScalarSumPreDetermined(A, x, m, n, comm);
+    return matrixScalarSubPreDetermined(A, x, m, n, comm);
 }

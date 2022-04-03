@@ -1,5 +1,4 @@
-#include "./addition.h"
-
+#include "./arithmetic.h"
 
 double *matricesSumPreDetermined(double *A, double *B, int m, int n, MPI_Comm comm)
 {
@@ -49,7 +48,6 @@ double *matricesSumPreDetermined(double *A, double *B, int m, int n, MPI_Comm co
         {
             endIdx = m;
         }
-
 
         for (size_t curRow = startIdx; curRow < endIdx; curRow++)
         {

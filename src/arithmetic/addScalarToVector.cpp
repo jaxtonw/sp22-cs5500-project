@@ -1,4 +1,4 @@
-#include "./addition.h"
+#include "./arithmetic.h"
 
 double *vectorScalarSumPreDetermined(double *a, double x, int n, MPI_Comm comm)
 {
@@ -98,7 +98,7 @@ double *addScalarToVectorSequential(double *a, double x, int m, MPI_Comm comm)
     return c;
 }
 
-double *addScalarVector(double *a, double x, int m, MPI_Comm comm)
+double *addScalarToVector(double *a, double x, int m, MPI_Comm comm)
 {
     // TODO: Find best value to not worry about parallel calcs
     if (m < 100)

@@ -1,6 +1,6 @@
 /**
  * @file
- * 
+ *
  * Basic arithmetic functions for vectors and matrices, including addition,
  * subtraction, and scalar multiplication
  */
@@ -38,7 +38,6 @@ double *addMatrices(double *A, double *B, int m, int n, MPI_Comm comm);
  */
 double *addVectors(double *a, double *b, int m, MPI_Comm comm);
 
-
 /**
  * @brief Sum a matrix with a scalar value.
  *
@@ -62,7 +61,6 @@ double *addScalarToMatrix(double *A, double x, int n, int m, MPI_Comm comm);
  */
 double *addScalarToVector(double *a, double x, int m, MPI_Comm comm);
 
-
 /**
  * @brief Sub matrix B from matrix A. Return result matrix on Rank 0.
  *
@@ -85,5 +83,28 @@ double *subMatrices(double *A, double *B, int m, int n, MPI_Comm comm);
  * @return The pointer to the result
  */
 double *subVectors(double *a, double *b, int m, MPI_Comm comm);
+
+/**
+ * @brief Subtract a matrix value from a vector.
+ *
+ * @param A Matrix A
+ * @param x Scalar x
+ * @param m The row count of the matrix
+ * @param n The column count of the matrix
+ * @param comm The current MPI_Comm
+ * @return The pointer to the result
+ */
+double *subScalarFromMatrix(double *A, double x, int n, int m, MPI_Comm comm);
+
+/**
+ * @brief Subtract a scalar value from a vector.
+ *
+ * @param a Vector a
+ * @param x Scalar x
+ * @param m The length of the vector
+ * @param comm The current MPI_Comm
+ * @return The pointer to the result
+ */
+double *subScalarFromVector(double *a, double x, int m, MPI_Comm comm);
 
 #endif

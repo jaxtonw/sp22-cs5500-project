@@ -1,10 +1,10 @@
-#include "../../src/arithmetic/addition.h"
+#include "../../src/arithmetic/arithmetic.h"
 #include "../../src/common/helpers.h"
 #include <mpi.h>
 
 #define MCW MPI_COMM_WORLD
 
-#define BIG_VALUE 1024
+#define LENGTH 10
 
 int main(int argc, char **argv)
 {
@@ -14,18 +14,16 @@ int main(int argc, char **argv)
     MPI_Comm_size(MPI_COMM_WORLD, &commSize);
     MPI_Barrier(MPI_COMM_WORLD);
 
-    double *a = new double[BIG_VALUE];
-    double *b = new double[BIG_VALUE];
+    double *a = new double[LENGTH];
 
-    int m = BIG_VALUE;
+    int m = LENGTH;
 
-    for (size_t i = 0; i < BIG_VALUE; i++)
+    for (size_t i = 0; i < LENGTH; i++)
     {
         a[i] = i;
-        b[i] = i;
     }
 
-    double *result = addVectors(a, b, m, MCW);
+    double *result = subScalarFromVector(a, 1, m, MCW);
 
     if (rank == 0)
     {

@@ -1,4 +1,4 @@
-#include "./addition.h"
+#include "./arithmetic.h"
 
 double *vectorsSumPreDetermined(double *a, double *b, int n, MPI_Comm comm)
 {

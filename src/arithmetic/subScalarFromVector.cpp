@@ -1,4 +1,4 @@
-#include "./addition.h"
+#include "./arithmetic.h"
 
 double *vectorScalarSubPreDetermined(double *a, double x, int n, MPI_Comm comm)
 {
@@ -98,7 +98,7 @@ double *subScalarToVectorSequential(double *a, double x, int m, MPI_Comm comm)
     return c;
 }
 
-double *subScalarVector(double *a, double x, int m, MPI_Comm comm)
+double *subScalarFromVector(double *a, double x, int m, MPI_Comm comm)
 {
     // TODO: Find best value to not worry about parallel calcs
     if (m < 100)
