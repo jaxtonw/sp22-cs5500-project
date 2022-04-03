@@ -1,0 +1,32 @@
+\hypertarget{arithmetic_8h_source}{}\doxysection{arithmetic.\+h}
+\label{arithmetic_8h_source}\index{src/arithmetic/arithmetic.h@{src/arithmetic/arithmetic.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <mpi.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{8 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 vector<vector<double>> addition(\textcolor{keywordtype}{int} rank, \textcolor{keywordtype}{int} size,}
+\DoxyCodeLine{13     vector<vector<double>> a, vector<vector<double>> b);}
+\DoxyCodeLine{14 vector<vector<double>> subtraction(\textcolor{keywordtype}{int} rank, \textcolor{keywordtype}{int} size,}
+\DoxyCodeLine{15     vector<vector<double>> a, vector<vector<double>> b);}
+\DoxyCodeLine{16 vector<vector<double>> element\_multiply(\textcolor{keywordtype}{int} rank, \textcolor{keywordtype}{int} size,}
+\DoxyCodeLine{17     vector<vector<double>> a, \textcolor{keywordtype}{double} b);}
+\DoxyCodeLine{18 vector<vector<double>> transpose(\textcolor{keywordtype}{int} rank, \textcolor{keywordtype}{int} size,}
+\DoxyCodeLine{19     vector<vector<double>> a);}
+\DoxyCodeLine{20 \textcolor{keywordtype}{void} delay(\textcolor{keywordtype}{int} num);}
+\DoxyCodeLine{21 \textcolor{comment}{//this code was found on http://skinderowicz.pl/static/pw2/MPI-\/tutorial.html}}
+\DoxyCodeLine{22 vector<double> recv\_vector(\textcolor{keywordtype}{int} sender);}
+\DoxyCodeLine{23 \textcolor{comment}{//this code was found on http://skinderowicz.pl/static/pw2/MPI-\/tutorial.html}}
+\DoxyCodeLine{24 \textcolor{keywordtype}{void} send\_vector(\textcolor{keywordtype}{int} dest, \textcolor{keyword}{const} vector<double>\& vec);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+
+\end{DoxyCode}
