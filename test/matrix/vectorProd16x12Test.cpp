@@ -4,8 +4,6 @@
 #include <chrono>
 #include <iostream>
 
-using namespace std::chrono;
-
 #define MCW MPI_COMM_WORLD
 
 int main(int argc, char **argv)
@@ -42,12 +40,12 @@ int main(int argc, char **argv)
     double x[] = {
         1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0};
 
-    auto start = high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
 
     double *result = vectorProduct(A, m, n, x, MCW);
 
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<microseconds>(stop - start);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
 
     if (rank == 0)
     {

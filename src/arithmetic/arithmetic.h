@@ -6,7 +6,6 @@
 #include <ctime>
 #include <iostream>
 #include <vector>
-using namespace std;
 
 
 

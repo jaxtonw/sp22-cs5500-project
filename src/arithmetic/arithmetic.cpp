@@ -6,7 +6,6 @@
 #define MCW MPI_COMM_WORLD
 #define nmax 10
 #define mmax 20
-using namespace std;
 
 
 vector<vector<double>> addition(int rank, int size,
