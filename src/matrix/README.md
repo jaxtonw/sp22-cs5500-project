@@ -6,6 +6,8 @@ This folder contains linear algebra operations related to matrices
 
 - [Matrix-Vector Product](./vectorProd.cpp)
 - [Matrix-Matrix Product](./matrixProd.cpp)
+- [Matrix-Matrix Elementwise Product](./elementwiseProd.cpp)
+- [Transpose](./transpose.cpp)
 
 ## Running Tests
 
