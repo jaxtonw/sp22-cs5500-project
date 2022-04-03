@@ -4,7 +4,6 @@
 #include <cmath>
 #define MCW MPI_COMM_WORLD
 
-using namespace std;
 
 /**
  * helper function - computes the dot product within a certain range
@@ -50,7 +49,7 @@ double dotProduct(double *x, double *y, size_t length, MPI_Comm comm)
                 remainder--;
             }
             partition[1] = partitionEnd;
-            // cout << i << ": partition start: "<< partitionStart << ", partition end: " << partitionEnd << endl;
+            // std::cout << i << ": partition start: "<< partitionStart << ", partition end: " << partitionEnd << std::endl;
             if (i == 0) {
                 subRange[0] = partitionStart;
                 subRange[1] = partitionEnd;
@@ -64,7 +63,7 @@ double dotProduct(double *x, double *y, size_t length, MPI_Comm comm)
     }
 
     double subRangeSum = partialDotProduct(x, y, subRange);
-    // cout << rank << ": subrange sum is " << subRangeSum << endl;
+    // std::cout << rank << ": subrange sum is " << subRangeSum << std::endl;
     MPI_Allreduce(&subRangeSum,&result,1,MPI_DOUBLE,MPI_SUM,MCW);
 
     return result;

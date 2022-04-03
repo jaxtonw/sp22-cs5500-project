@@ -12,8 +12,6 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 /**
  * 2D Matrix product with vector
  *

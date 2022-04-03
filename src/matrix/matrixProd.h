@@ -11,8 +11,6 @@
 #include "../common/mpiHelpers.h"
 #include <iostream>
 
-using namespace std;
-
 /**
  * 2D Matrix - 2D Matrix product. It is assumed that matrix A is m x n and
  * matrix B is n x p. Result is a m x p matrix stored in array form.

@@ -2,9 +2,6 @@
 #include <chrono>
 #include <iostream>
 
-using namespace std::chrono;
-using namespace std;
-
 int main(int argc, char **argv)
 {
     
@@ -26,7 +23,7 @@ int main(int argc, char **argv)
     // random_shuffle(A, A + ROWS * COLUMNS);
     // random_shuffle(x, x + COLUMNS);
 
-    auto start = high_resolution_clock::now();
+    auto start = std::chrono::high_resolution_clock::now();
 
     for (size_t i = 0; i < ROWS; i++)
     {
@@ -37,9 +34,10 @@ int main(int argc, char **argv)
         }
     }
 
-    auto duration = duration_cast<microseconds>(high_resolution_clock::now() - start);
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(
+        std::chrono::high_resolution_clock::now() - start);
 
-    // cout << "Result is ";
+    // std::cout << "Result is ";
     // printVector(y, COLUMNS);
-    cout << duration.count() << endl;
+    std::cout << duration.count() << std::endl;
 }
