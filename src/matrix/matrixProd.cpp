@@ -11,17 +11,6 @@ void checkSizeCSendNext(uint64_t *currentIdx, uint64_t sizeC, uint16_t rank, MPI
     }
 }
 
-/**
- * @brief 2D Matrix dot product with 2D Matrix.
- *
- * @param A The left matrix
- * @param m The row count of the left matrix
- * @param n The column count of the left matrix
- * @param B The right matrix
- * @param p The column count of the right matrix
- * @param comm The current MPI_Comm
- * @return The pointer to the result
- */
 double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)
 {
     int rank, commSize, sendBuf, flag = 0;
@@ -133,18 +122,7 @@ double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint
     return C;
 }
 
-/**
- * @brief 2D Matrix - 2D Matrix product. It is assumed that matrix A is m x n and
- *        matrix B is n x p. Result is a m x p matrix stored in array form.
- *
- * @param A The left matrix
- * @param m The row count of the left matrix
- * @param n The column count of the left matrix
- * @param B The right matrix
- * @param p The column count of the right matrix
- * @param comm The current MPI_Comm
- * @return The pointer to the result
- */
+
 double *matrixProduct(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)
 {
     // The fastest in benchmark so far
