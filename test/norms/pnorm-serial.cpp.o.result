@@ -1,12 +1,24 @@
-Test Vector [
-  1
-  1
-  1
-  1
-  1
+Test Vector Of Size 5: [
+ 1
+ 1
+ 1
+ 1
+ 1
 ]
-p norm result (p=1): pNorm(testVec, 1) = 5
-p norm result (p=2): pNorm(testVec, 2) = 2.23607
-p norm result (p=3): pNorm(testVec, 3) = 1.70998
-p norm result (p=4): pNorm(testVec, 4) = 1.49535
-p norm result (p=5): pNorm(testVec, 5) = 1.37973
+P norm result (p=1): pNorm(1, testVecS5)   = 5
+P norm result (p=2): pNorm(2, testVecS5)   = 2.23607
+P norm result (p=3): pNorm(3, testVecS5)   = 1.70998
+P norm result (p=4): pNorm(4, testVecS5)   = 1.49535
+P norm result (p=5): pNorm(5, testVecS5)   = 1.37973
+Test Vector Of Size 50 created, containing only 1s.
+P norm result (p=1): pNorm(1, testVecS50)  = 50
+P norm result (p=2): pNorm(2, testVecS50)  = 7.07107
+P norm result (p=3): pNorm(3, testVecS50)  = 3.68403
+P norm result (p=4): pNorm(4, testVecS50)  = 2.65915
+P norm result (p=5): pNorm(5, testVecS50)  = 2.18672
+Test Vector Of Size 500 created, containing only.
+P norm result (p=1): pNorm(1, testVecS500) = 500
+P norm result (p=2): pNorm(2, testVecS500) = 22.3607
+P norm result (p=3): pNorm(3, testVecS500) = 7.93701
+P norm result (p=4): pNorm(4, testVecS500) = 4.72871
+P norm result (p=5): pNorm(5, testVecS500) = 3.46572

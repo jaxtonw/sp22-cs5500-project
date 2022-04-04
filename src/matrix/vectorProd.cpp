@@ -5,33 +5,22 @@ void checkSendNext(uint64_t *currentIdx, uint64_t m, uint16_t rank, MPI_Comm com
     // don't overrun work if m < size
     if (*currentIdx < m)
     {
-        // cout << "sending row: " << curIdx << ", to rank: " << i << endl;
+        // std::cout << "sending row: " << curIdx << ", to rank: " << i << std::endl;
         MPI_Send(currentIdx, 1, MPI_UINT64_T, rank, 0, comm);
         *currentIdx += 1;
     }
 }
 
-/**
- * @brief 2D Matrix dot product with vector, fastest
- *
- * @param A The main matrix
- * @param m The row count of the matrix
- * @param n The column count of the matrix
- * @param x The product vector
- * @param y The result vector
- * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
- */
 double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
     int rank, commSize, sendBuf, flag = 0;
 
     MPI_Comm_rank(comm, &rank);
     MPI_Comm_size(comm, &commSize);
-    MPI_Datatype vectorCalcType = mpiDatatypeVectorCalcType();
+    MPI_Datatype indexDoubleType = createIndexDoubleDatatype();
 
     double *y = NULL;
-    vectorCalcStruct vecBuf;
+    indexDoubleStruct vecBuf;
 
     if (rank == 0)
     {
@@ -43,7 +32,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
 
         while (1)
         {
-            MPI_Irecv(&vecBuf, 1, vectorCalcType, MPI_ANY_SOURCE, 0, comm, &request);
+            MPI_Irecv(&vecBuf, 1, indexDoubleType, MPI_ANY_SOURCE, 0, comm, &request);
 
             // On initial send, start workers
             if (!curIdx)
@@ -57,8 +46,8 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
             // Kill process when calculated
             if (returnCounter >= m)
             {
-                // cout << "returnCounter: " << returnCounter << endl;
-                // cout << "sending poison pill" << endl;
+                // std::cout << "returnCounter: " << returnCounter << std::endl;
+                // std::cout << "sending poison pill" << std::endl;
                 sendBuf = POISON_PILL;
                 for (size_t i = 1; i < commSize; i++)
                 {
@@ -74,7 +63,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
                 if (flag)
                 {
                     returnCounter++;
-                    // cout << "returnCounter: " << returnCounter << endl;
+                    // std::cout << "returnCounter: " << returnCounter << std::endl;
 
                     uint64_t idx = vecBuf.idx;
                     uint16_t recRank = status.MPI_SOURCE;
@@ -82,7 +71,7 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
 
                     y[idx] = recValue;
 
-                    // cout << "value: " << recValue << ", from rank: " << recRank << ", idx: " << idx << endl;
+                    // std::cout << "value: " << recValue << ", from rank: " << recRank << ", idx: " << idx << std::endl;
 
                     checkSendNext(&curIdx, m, recRank, comm);
                     break;
@@ -111,25 +100,25 @@ double *vectorProductRowByRow(double *A, uint64_t m, uint64_t n, double *x, MPI_
                 vecBuf.value += x[i] * A[recBuf * n + i];
             }
 
-            MPI_Send(&vecBuf, 1, vectorCalcType, 0, 0, comm);
+            MPI_Send(&vecBuf, 1, indexDoubleType, 0, 0, comm);
         }
     }
 
-    // cout << "rank: " << rank << " exiting" << endl;
+    // std::cout << "rank: " << rank << " exiting" << std::endl;
 
     return y;
 }
 
 /**
- * @brief 2D Matrix dot product with vector
+ * @brief 2D Matrix dot product with vector. Each rank pre-determines values to
+ *        send back to rank 0.
  *
- * @param A The main matrix
+ * @param A The matrix
  * @param m The row count of the matrix
  * @param n The column count of the matrix
  * @param x The product vector
- * @param y The result vector
  * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
+ * @return The pointer to the result
  */
 double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
@@ -137,10 +126,10 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
 
     MPI_Comm_rank(comm, &rank);
     MPI_Comm_size(comm, &commSize);
-    MPI_Datatype vectorCalcType = mpiDatatypeVectorCalcType();
+    MPI_Datatype indexDoubleType = createIndexDoubleDatatype();
 
     double *y = NULL;
-    vectorCalcStruct vecBuf;
+    indexDoubleStruct vecBuf;
 
     if (rank == 0)
     {
@@ -152,7 +141,7 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
 
         while (1)
         {
-            MPI_Recv(&vecBuf, 1, vectorCalcType, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
+            MPI_Recv(&vecBuf, 1, indexDoubleType, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
 
             returnCounter++;
             y[vecBuf.idx] = vecBuf.value;
@@ -160,8 +149,8 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
             // Kill process when calculated
             if (returnCounter >= m)
             {
-                // cout << "returnCounter: " << returnCounter << endl;
-                // cout << "sending poison pill" << endl;
+                // std::cout << "returnCounter: " << returnCounter << std::endl;
+                // std::cout << "sending poison pill" << std::endl;
                 sendBuf = POISON_PILL;
                 for (size_t i = 1; i < commSize; i++)
                 {
@@ -189,7 +178,7 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
         }
 
         // #ifndef MAKE_TEST
-        //         cout << "rank: " << rank << ", startIdx: " << startIdx << ", endIdx: " << endIdx << endl;
+        //         std::cout << "rank: " << rank << ", startIdx: " << startIdx << ", endIdx: " << endIdx << std::endl;
         // #endif
 
         for (size_t j = startIdx; j < endIdx; j++)
@@ -202,7 +191,7 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
                 vecBuf.value += x[i] * A[j * n + i];
             }
 
-            MPI_Send(&vecBuf, 1, vectorCalcType, 0, 0, comm);
+            MPI_Send(&vecBuf, 1, indexDoubleType, 0, 0, comm);
         }
 
         while (1)
@@ -216,22 +205,11 @@ double *vectorProductPreDetermined(double *A, uint64_t m, uint64_t n, double *x,
         }
     }
 
-    // cout << "rank: " << rank << " exiting" << endl;
+    // std::cout << "rank: " << rank << " exiting" << std::endl;
 
     return y;
 }
 
-/**
- * @brief 2D Matrix dot product with vector
- *
- * @param A The main matrix
- * @param m The row count of the matrix
- * @param n The column count of the matrix
- * @param x The product vector
- * @param y The result vector
- * @param comm The current MPI_Comm
- * @return The shared_ptr pointer to the result
- */
 double *vectorProduct(double *A, uint64_t m, uint64_t n, double *x, MPI_Comm comm)
 {
     // The fastest in benchmark so far

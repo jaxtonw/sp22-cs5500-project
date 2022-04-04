@@ -1,31 +1,45 @@
 #include "mpiHelpers.h"
 
-#include <iostream>
-/**
- * @brief Creates a custom MPI datatype with a UInt64, Uint64, and double.
- *        Source code from https://www.rookiehpc.com/mpi/docs/mpi_type_create_struct.php
- * 
- * @return MPI_Datatype 
- */
-MPI_Datatype mpiDatatypeVectorCalcType()
-{
-    //https://www.rookiehpc.com/mpi/docs/mpi_type_create_struct.php
+MPI_Datatype createIndexDoubleDatatype(){
+    const int objs = 2;
+    const int lengths[objs] = {1, 1};
+    MPI_Datatype types[objs] = {MPI_UINT64_T, MPI_DOUBLE};
+    MPI_Datatype indexDoubleDatatype;
 
-    const int numObjs = 2;
-    MPI_Datatype vectorCalcType;
-    int lengths[numObjs] = {1, 1};
+    // The displacement is the size of the last variables
+    // e.g., start @ 0, uint64_t is 8 bytes
+    MPI_Aint displacements[objs] = {0, 8};
 
-    MPI_Aint displacements[numObjs];
-    struct vectorCalcStruct dummy_person;
-    MPI_Aint base_address;
-    MPI_Get_address(&dummy_person, &base_address);
-    MPI_Get_address(&dummy_person.idx, &displacements[0]);
-    MPI_Get_address(&dummy_person.value, &displacements[1]);
-    displacements[0] = MPI_Aint_diff(displacements[0], base_address);
-    displacements[1] = MPI_Aint_diff(displacements[1], base_address);
+    // Generate the MPI Type struct with the following info:
+    // - The number of objects
+    // - An array containing the number of each primitive
+    // - The displacements (byte size) of each primitive
+    // - An array containing the MPI primitive types
+    // - The pointer to the to-be-created type
+    MPI_Type_create_struct(objs, lengths, displacements, types, &indexDoubleDatatype);
 
-    MPI_Datatype types[numObjs] = {MPI_UINT64_T, MPI_DOUBLE};
-    MPI_Type_create_struct(numObjs, lengths, displacements, types, &vectorCalcType);
-    MPI_Type_commit(&vectorCalcType);
-    return vectorCalcType;
+    // Commit the new type to MPI
+    MPI_Type_commit(&indexDoubleDatatype);
+
+    return indexDoubleDatatype;
 }
+
+void printStruct(indexDoubleStruct indexDouble)
+{
+    std::cout << "idx: " << indexDouble.idx << ", value: " << indexDouble.value << ", val";
+}
+
+#ifdef CUSTOM_DATATYPE_TEST
+int main(int argc, char **argv)
+{
+    MPI_Init(&argc, &argv);
+    int rank, commSize = 0;
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+    MPI_Comm_size(MPI_COMM_WORLD, &commSize);
+    MPI_Barrier(MPI_COMM_WORLD);
+
+    createIndexDoubleSliceDatatype(10);
+
+    MPI_Finalize();
+}
+#endif
