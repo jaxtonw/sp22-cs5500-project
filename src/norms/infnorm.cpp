@@ -12,6 +12,18 @@ double infNorm(double *vec, size_t length, MPI_Comm comm) {
     startIdx = (length / commSize) * rank;
     endIdx = (length / commSize) * (rank + 1);
 
+    int remainder = length % commSize; 
+    if (remainder != 0) {
+        if (rank < remainder) {
+            startIdx += rank;
+            endIdx += rank + 1;
+        }
+        else if (length > commSize) {
+            startIdx += remainder;
+            endIdx += remainder;
+        }
+    }
+
     if (endIdx != 0) {
         for (int i = startIdx; i < endIdx; i++) {
             if (abs(vec[i]) > result) {
@@ -20,17 +32,21 @@ double infNorm(double *vec, size_t length, MPI_Comm comm) {
         }
     }
 
-    if (!rank) {
-        double receivedVal = 0;
-        for (int proc = 1; proc < commSize; proc++) {
-            MPI_Recv(&receivedVal, 1, MPI_DOUBLE, MPI_ANY_SOURCE, MPI_ANY_TAG, comm, MPI_STATUS_IGNORE);
-            if (abs(receivedVal) > result)
-                result = abs(receivedVal);
-        }
-    }
-    else {
+    if (rank != 0) {
         MPI_Send(&result, 1, MPI_DOUBLE, 0, 0, comm);
     }
+    else {
+        double receivedVal = 0;
+        for (int proc = 1; proc < commSize; proc++) {
+            MPI_Recv(&receivedVal, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
+            
+            if (abs(receivedVal) > result) {
+                result = abs(receivedVal);
+            }
+
+        }
+    }
+    MPI_Barrier(comm);
 
     return result;
 }
