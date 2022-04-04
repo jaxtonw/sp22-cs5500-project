@@ -1,0 +1,12 @@
+Test Vector Of Size 5: [
+ 1
+ 1
+ 1
+ 1
+ 1
+]
+One norm result: oneNorm(testVecS5) = 5
+Test Vector Of Size 50 created, containing only 1s.
+One norm result: oneNorm(testVecS50) = 50
+Test Vector Of Size 500 created, containing only 1s.
+One norm result: oneNorm(testVecS500) = 500
