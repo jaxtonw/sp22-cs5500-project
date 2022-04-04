@@ -1,4 +1,4 @@
-#include "infnorm-serial.h"
+#include "infnorm.h"
 #include "mpi.h"
 
 double infNorm(double *vec, size_t length, MPI_Comm comm) {
