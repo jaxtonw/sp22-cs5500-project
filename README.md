@@ -53,8 +53,7 @@ A makefile has been provided to perform test automation.
 
 See the [test README](./test/README.md) for more information.
 ## Authors
-
--   Sander Burton
--   Max Clark
--   James Sanford-Luevano
--   Jaxton Winder
+*   Sander Burton
+*   Max Clark
+*   James Sanford-Luevano
+*   Jaxton Winder

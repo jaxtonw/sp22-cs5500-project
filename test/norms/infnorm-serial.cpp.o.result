@@ -1,8 +1,18 @@
-Test Vector [
-  0
-  1
-  2
-  3
-  4
+Test Vector Of Size 5: [
+ 0
+ 1
+ 2
+ 3
+ 4
 ]
-Inf norm result: infNorm(testVec) = 4
+Inf norm result: infNorm(testVecS5) = 4
+Inf norm result: infNorm(testVecS5Shuffled) = 4
+Inf norm result: infNorm(testVecS5Reversed) = 4
+Test Vector Of Size 50 created, like the above test vector, with max of 49.
+Inf norm result: infNorm(testVecS50) = 49
+Inf norm result: infNorm(testVecS50Shuffled) = 49
+Inf norm result: infNorm(testVecS50Reversed) = 49
+Test Vector Of Size 500 created, like the above test vector, with max of 499.
+Inf norm result: infNorm(testVecS50) = 499
+Inf norm result: infNorm(testVecS50Shuffled) = 499
+Inf norm result: infNorm(testVecS50Reversed) = 499
