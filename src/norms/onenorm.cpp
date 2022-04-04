@@ -1,7 +1,7 @@
-#include "infnorm.h"
+#include "onenorm.h"
 #include "mpi.h"
 
-double infNorm(double *vec, size_t length, MPI_Comm comm) {
+double oneNorm(double *vec, size_t length, MPI_Comm comm) {
     double result = 0;
     
     int rank, commSize;
@@ -26,9 +26,7 @@ double infNorm(double *vec, size_t length, MPI_Comm comm) {
 
     if (endIdx != 0) {
         for (int i = startIdx; i < endIdx; i++) {
-            if (abs(vec[i]) > result) {
-                result = abs(vec[i]);
-            }
+            result += abs(vec[i]);
         }
     }
 
@@ -39,11 +37,7 @@ double infNorm(double *vec, size_t length, MPI_Comm comm) {
         double receivedVal = 0;
         for (int proc = 1; proc < commSize; proc++) {
             MPI_Recv(&receivedVal, 1, MPI_DOUBLE, MPI_ANY_SOURCE, 0, comm, MPI_STATUS_IGNORE);
-            
-            if (abs(receivedVal) > result) {
-                result = abs(receivedVal);
-            }
-
+            result += abs(receivedVal);
         }
     }
     MPI_Barrier(comm);
