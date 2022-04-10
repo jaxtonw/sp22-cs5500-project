@@ -26,6 +26,8 @@ ludecomp(int rank, int size,
 
     for (int i = 0; i < a.size(); i++)
     {
+        // std::cout << "Process " << rank << " just started iteration " << i << std::endl;
+
         if (i - sizeoffset == size)
         {
             indexflag = 0;
@@ -36,47 +38,53 @@ ludecomp(int rank, int size,
             indexflag = 1;
             index = index + size;
         }
-
+        
         for (int j = 0; j < a.size(); j++)
         {
+            // std::cout << "Process " << rank << " with i=" << i << " working on column " << j << std::endl;
+
             if (index == i)
             {
                 // set zeros
                 if (j < i)
                 {
-                    ltemp = 0;
+                    l[j][i] = 0;
                 }
                 // set diagonal
                 else if (j == i)
-                    ltemp = 1;
+                    l[j][i] = 1;
                 // evaluate lower
                 else
                 {
-                    ltemp = a[j][i];
+                    l[j][i] = a[j][i];
 
                     for (int k = 0; k < i; k++)
                     {
-                        ltemp = ltemp - l[j][k] * u[k][i];
+                        l[j][i] = l[j][i] - l[j][k] * u[k][i];
                     }
                 }
             }
+            // std::cout << "Process " << rank << " with i=" << i << " working on column " << j << " and STARTING BROADCAST." << std::endl;
             if (i >= sizeoffset)
             {
-
                 // MPI_Barrier(MCW);
-                MPI_Bcast(&ltemp, 1, MPI_LONG_DOUBLE, (i - sizeoffset), MCW);
+                MPI_Bcast(&l[j][i], 1, MPI_DOUBLE, (i - sizeoffset), MCW);
                 // MPI_Barrier(MCW);
                 // cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
             }
             else
             {
                 // MPI_Barrier(MCW);
-                MPI_Bcast(&ltemp, 1, MPI_LONG_DOUBLE, i, MCW);
+                MPI_Bcast(&l[j][i], 1, MPI_DOUBLE, i, MCW);
                 // MPI_Barrier(MCW);
                 // cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
             }
-            l[j][i] = ltemp;
+            // std::cout << "Process " << rank << " with i=" << i << " working on column " << j << " setting ltemp=" << ltemp << std::endl;
+            // l[j][i] = ltemp; Somehow this line of code broke EVERYTHING :(
+            // std::cout << "Process " << rank << " with i=" << i << " working on column " << j << " set ltemp=" << ltemp << std::endl;
+
         }
+
 
         for (int j = 0; j < a.size(); j++)
         {
@@ -112,6 +120,8 @@ ludecomp(int rank, int size,
 
             u[i][j] = utemp;
         }
+        // std::cout << "Process " << rank << " just finished iteration " << i << std::endl;
+
     }
     MPI_Barrier(MCW);
 
