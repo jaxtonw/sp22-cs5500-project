@@ -1,7 +1,7 @@
 #include "ludecomp.h"
 
 #define MCW MPI_COMM_WORLD
-#define nmax 10
+#define nmax 4
 
 int main(int argc, char **argv)
 {
@@ -23,14 +23,19 @@ int main(int argc, char **argv)
     int i;
     int j;
     int num = 0;
-    for (i = 0; i < m.size(); i++)
-    {
-        for (j = 0; j < m.at(0).size(); j++)
-        {
-            m[i][j] = (rand() % 10); // mat[i][j];
-            // std::cout << m[i][j] ;
-        }
-    }
+    m[0] = std::vector<double>{2, 6, 7, -3};
+    m[1] = std::vector<double>{4, 13, 11, 1};
+    m[2] = std::vector<double>{-2, -2, -21, 41};
+    m[3] = std::vector<double>{-8, -21, -51, 53};
+
+    // for (i = 0; i < m.size(); i++)
+    // {
+    //     for (j = 0; j < m.at(0).size(); j++)
+    //     {
+    //         m[i][j] = (rand() % 10); // mat[i][j];
+    //         // std::cout << m[i][j] ;
+    //     }
+    // }
 
     if (!rank)
     {
