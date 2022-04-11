@@ -5,8 +5,8 @@
 #include <math.h>
 #include <iostream>
 
-typedef std::vector<double> MathVector;
-typedef std::vector<MathVector> Matrix;
+using MathVector = std::vector<double>;
+using Matrix = std::vector<MathVector>;
 
 MathVector diagonalSolver(Matrix matrixA, MathVector vectorB);
 
