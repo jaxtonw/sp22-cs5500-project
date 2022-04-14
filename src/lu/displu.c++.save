@@ -8,7 +8,7 @@ int main(int argc, char **argv)
     int rank;
     int size;
 
-    // 
+    //
     // delay(10);
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MCW, &rank);

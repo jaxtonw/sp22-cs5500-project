@@ -37,80 +37,88 @@ ludecomp(int rank, int size,
             index = index + size;
         }
 
-        for (int j = 0; j < a.size(); j++)
-        {
-            if (index == i)
-            {
-                // set zeros
+        for (int j = 0; j < a.size(); j++) {
+            if (index == i) {
+                //set zeros
                 if (j < i)
-                {
-                    ltemp = 0;
-                }
-                // set diagonal
-                else if (j == i)
-                    ltemp = 1;
-                // evaluate lower
-                else
-                {
-                    ltemp = a[j][i];
+                    u[i][j] = 0;
+                //evaluate upper
+                else {
 
-                    for (int k = 0; k < i; k++)
-                    {
-                        ltemp = ltemp - l[j][k] * u[k][i];
+                    u[i][j] = a[i][j];
+                    for (int k = 0; k < i; k++) {
+
+                        u[i][j] = u[i][j] - ((u[k][j] * l[i][k]));
+                      //cout << "u: " << u[i][j] << " u[k][j] " << u[k][i] << " l[i][k]: " << l[j][k] << endl;
+
                     }
                 }
-            }
-            if (i >= sizeoffset)
-            {
 
-                // MPI_Barrier(MCW);
-                MPI_Bcast(&ltemp, 1, MPI_LONG_DOUBLE, (i - sizeoffset), MCW);
-                // MPI_Barrier(MCW);
-                // cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
             }
-            else
-            {
-                // MPI_Barrier(MCW);
-                MPI_Bcast(&ltemp, 1, MPI_LONG_DOUBLE, i, MCW);
-                // MPI_Barrier(MCW);
-                // cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
+            if (i >= sizeoffset) {
+                MPI_Barrier(MCW);
+                MPI_Bcast(&u[i][j], 1, MPI_LONG_DOUBLE, i - sizeoffset, MCW);
+                MPI_Barrier(MCW);
+                //cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
+
             }
-            l[j][i] = ltemp;
+            else {
+                MPI_Barrier(MCW);
+                MPI_Bcast(&u[i][j], 1, MPI_LONG_DOUBLE, i, MCW);
+                MPI_Barrier(MCW);
+                //cout << "rank: " << rank << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
+
+
+            }
+
+
         }
 
-        for (int j = 0; j < a.size(); j++)
-        {
-            if (index == i)
-            {
-                // set zeros
-                if (j < i)
-                    utemp = 0;
-                // evaluate upper
-                else
-                {
-                    utemp = a[i][j] / l[i][i];
-                    for (int k = 0; k < i; k++)
-                    {
-                        utemp = utemp - ((l[i][k] * u[k][j]) / l[i][i]);
+
+
+        for (int j = 0; j < a.size(); j++) {
+            if (index == i) {
+                //set zeros
+                if (j < i) {
+                    l[j][i] = 0;
+                }
+                //set diagonal
+                else if (j == i) {
+                    l[j][i] = 1;
+                    if (a[j][i] == 0) {
+                        cout<< "not Decomposable" << endl;
+                        break;
+                    }
+                }
+                //evaluate lower
+                else {
+
+                    l[j][i] = a[j][i]/u[i][i];
+
+                    for (int k = 0; k < i; k++) {
+                        l[j][i] = l[j][i] - ((u[k][i] * l[j][k])/u[i][i]);
+                      //cout << "l: " << l[j][i]  << " u[k][i] " << u[k][i] << " l[j][k]: " << l[j][k] << endl;
+
                     }
                 }
             }
-            if (i >= sizeoffset)
-            {
-                // MPI_Barrier(MCW);
-                MPI_Bcast(&utemp, 1, MPI_LONG_DOUBLE, i - sizeoffset, MCW);
-                // MPI_Barrier(MCW);
-                // cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
-            }
-            else
-            {
-                // MPI_Barrier(MCW);
-                MPI_Bcast(&utemp, 1, MPI_LONG_DOUBLE, i, MCW);
-                // MPI_Barrier(MCW);
-                // cout << "rank: " << rank << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
-            }
+            if (i >= sizeoffset) {
 
-            u[i][j] = utemp;
+                MPI_Barrier(MCW);
+                MPI_Bcast(&l[j][i], 1, MPI_LONG_DOUBLE, (i - sizeoffset), MCW);
+                MPI_Barrier(MCW);
+                //cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
+
+            }
+            else {
+                MPI_Barrier(MCW);
+                MPI_Bcast(&l[j][i], 1, MPI_LONG_DOUBLE, i, MCW);
+                MPI_Barrier(MCW);
+                //cout << "rank: " << rank << " sizeoff " << sizeoffset << " i-size: " << i - sizeoffset << " i : " << i << " index: " << index << endl;
+
+            }
+            //l[j][i] = ltemp;
+
         }
     }
     MPI_Barrier(MCW);
