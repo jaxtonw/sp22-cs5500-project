@@ -1,4 +1,4 @@
-#include "diagonalSolver.h"
+#include "diagonalSolver-serial.h"
 
 #define SIZE 5
 
@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
         b[i] = 1;
     }
 
-    MathVector sol = diagonalSolver(A, b);
+    MathVector sol = diagonalSolverSerial(A, b);
 
     for (int i = 0; i < sol.size(); i++) {
         std::cout << "sol[" << i << "] = " << sol[i] << std::endl;
