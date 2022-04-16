@@ -1,5 +1,5 @@
-#ifndef DIAGONALSOLVER_H
-#define DIAGONALSOLVER_H
+#ifndef DIAGONALSOLVERSERIAL_H
+#define DIAGONALSOLVERSERIAL_H
 
 #include <vector>
 #include <math.h>
@@ -8,6 +8,6 @@
 using MathVector = std::vector<double>;
 using Matrix = std::vector<MathVector>;
 
-MathVector diagonalSolver(Matrix matrixA, MathVector vectorB);
+MathVector diagonalSolverSerial(Matrix matrixA, MathVector vectorB);
 
 #endif

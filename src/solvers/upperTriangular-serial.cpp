@@ -1,9 +1,9 @@
-#include "lowerTriangular.h"
+#include "upperTriangular-serial.h"
 
-MathVector lowerTriangularSolver(Matrix matrixA, MathVector vectorB) {
+MathVector upperTriangularSolverSerial(Matrix matrixA, MathVector vectorB) {
     MathVector solution(vectorB.size());
-    
-    for (int i = 0; i < matrixA.size(); i++) {
+
+    for (int i = matrixA.size() - 1; i >= 0; i--) {
         if (matrixA[i][i] == 0) {
             if (vectorB[i] == 0) {
                 solution[i] = 0;
@@ -16,7 +16,7 @@ MathVector lowerTriangularSolver(Matrix matrixA, MathVector vectorB) {
         else {
             solution[i] = vectorB[i] / matrixA[i][i];
         }
-        for (int k = i; k < matrixA.size(); k++) {
+        for (int k = i; k >= 0; k--) {
             vectorB[k] = vectorB[k] - matrixA[k][i] * solution[i]; 
         }
     }
