@@ -18,10 +18,8 @@ double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint
 
     MPI_Comm_rank(comm, &rank);
     MPI_Comm_size(comm, &commSize);
-    MPI_Datatype indexDoubleType = createIndexDoubleDatatype();
 
     double *C = NULL;
-    indexDoubleStruct vecBuf;
 
     if (rank == 0)
     {
@@ -113,7 +111,7 @@ double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint
                 vecBuf.value += A[(vecBuf.idx / p) * n + i % n] * B[i * p + vecBuf.idx % p];
             }
 
-            MPI_Send(&vecBuf, 1, indexDoubleType, 0, 0, comm);
+            MPI_Send(&vecBuf, 1, MPI_DOUBLE, 0, 0, comm);
         }
     }
 
