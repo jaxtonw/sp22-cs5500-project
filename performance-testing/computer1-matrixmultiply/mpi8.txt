@@ -1,0 +1,11 @@
+5381
+5285
+5209
+5338
+5212
+5680
+5440
+5585
+5624
+5813
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 54567ms

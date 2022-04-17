@@ -1,0 +1,11 @@
+16051
+16476
+15745
+16118
+15589
+16466
+16257
+16057
+15898
+15686
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 160343ms

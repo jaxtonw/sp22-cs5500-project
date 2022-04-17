@@ -1,0 +1,11 @@
+29352
+29577
+29586
+29904
+29867
+29867
+29548
+29794
+29547
+29725
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 296767ms
