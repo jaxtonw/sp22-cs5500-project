@@ -1,4 +1,4 @@
-#include "./vectorProd.h"
+#include "./matrixProd.h"
 
 void checkSizeCSendNext(uint64_t *currentIdx, uint64_t sizeC, uint16_t rank, MPI_Comm comm)
 {
@@ -9,6 +9,84 @@ void checkSizeCSendNext(uint64_t *currentIdx, uint64_t sizeC, uint16_t rank, MPI
         MPI_Send(currentIdx, 1, MPI_UINT64_T, rank, 0, comm);
         *currentIdx += 1;
     }
+}
+
+double *matrixProductPreDetermined(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)
+{
+    int rank, commSize;
+    MPI_Comm_rank(comm, &rank);
+    MPI_Comm_size(comm, &commSize);
+
+    // Work + overflow
+    const uint64_t sizeC = p * m;
+    const uint64_t workSize = (sizeC / commSize);
+    const uint64_t workRemainder = (sizeC % commSize);
+    const uint64_t bufferSize = workSize + (sizeC % commSize);
+    const uint64_t startIndex = workSize * rank;
+    double *buf = new double[bufferSize];
+    double *C = new double[sizeC];
+    double calcValue;
+
+    int displacements[commSize];
+    displacements[0] = 0;
+    for (size_t i = 1; i < commSize; i++)
+    {
+        displacements[i] = displacements[i - 1] + workSize;
+    }
+
+    // std::cout << "displacements rank " << rank << ": {";
+    // for (size_t i = 0; i < commSize; i++)
+    // {
+    //     std::cout << displacements[i];
+    //     if (i < commSize - 1)
+    //     {
+    //         std::cout << ", ";
+    //     }
+    //     else
+    //     {
+    //         std::cout << "}" << std::endl;
+    //     }
+    // }
+
+    int lengths[commSize];
+    for (size_t i = 0; i < commSize; i++)
+    {
+        lengths[i] = workSize;
+    }
+    lengths[commSize - 1] += workRemainder;
+
+    // std::cout << "lengths rank " << rank << ": {";
+    // for (size_t i = 0; i < commSize; i++)
+    // {
+    //     std::cout << lengths[i];
+    //     if (i < commSize - 1)
+    //     {
+    //         std::cout << ", ";
+    //     }
+    //     else
+    //     {
+    //         std::cout << "}" << std::endl;
+    //     }
+    // }
+
+    uint64_t newStartIdx;
+    for (uint64_t idx = 0; idx < lengths[rank]; idx++)
+    {
+        buf[idx] = 0;
+        newStartIdx = (idx + startIndex);
+        for (uint64_t i = 0; i < n; i++)
+        {
+            // The first values of A are on the first row (e.g., idx/p == 0), indexed by i % n.
+            // Use the columns of B (i * b) and incrememt by the idx % p.
+
+            buf[idx] += A[(newStartIdx / p) * n + i] * B[i * p + newStartIdx % p];
+            // buf[idx] += A[(idx + startIndex) + i] * B[i * p + (idx + startIndex)];
+        }
+    }
+
+    MPI_Allgatherv(buf, lengths[rank], MPI_DOUBLE, C, lengths, displacements, MPI_DOUBLE, comm);
+
+    return C;
 }
 
 double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)
@@ -96,13 +174,6 @@ double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint
             vecBuf.idx = recBuf;
             vecBuf.value = 0;
 
-#ifndef MAKE_TEST
-            if (vecBuf.idx == 3)
-            {
-                std::cout << "rank: " << rank << ", idx: " << vecBuf.idx << std::endl;
-            }
-#endif
-
             // First Matrix: MxN
             // Second Matrix: NxP
             // Result : MxP
@@ -122,9 +193,10 @@ double *matrixProductRowByRow(double *A, uint64_t m, uint64_t n, double *B, uint
     return C;
 }
 
-
 double *matrixProduct(double *A, uint64_t m, uint64_t n, double *B, uint64_t p, MPI_Comm comm)
 {
     // The fastest in benchmark so far
-    return matrixProductRowByRow(A, m, n, B, p, comm);
+    // return matrixProductRowByRow(A, m, n, B, p, comm);
+
+    return matrixProductPreDetermined(A, m, n, B, p, comm);
 }

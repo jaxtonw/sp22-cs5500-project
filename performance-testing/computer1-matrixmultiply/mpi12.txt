@@ -1,0 +1,11 @@
+6861
+7133
+7193
+7189
+7186
+7208
+7325
+7881
+7864
+7837
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 73677ms

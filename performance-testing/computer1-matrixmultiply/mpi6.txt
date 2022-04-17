@@ -1,0 +1,11 @@
+6091
+6266
+6098
+6189
+6122
+6618
+6517
+6474
+6798
+6600
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 63773ms

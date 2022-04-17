@@ -1,0 +1,11 @@
+8450
+8433
+8627
+8392
+8373
+8454
+8481
+8402
+8449
+8504
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 84565ms

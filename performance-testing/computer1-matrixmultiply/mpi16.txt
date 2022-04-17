@@ -1,0 +1,11 @@
+5565
+5712
+6181
+5959
+5941
+5918
+6044
+6140
+6050
+5983
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random multiply 10 times, total time was: 59493ms
