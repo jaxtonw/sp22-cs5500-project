@@ -1,4 +1,4 @@
-#include "upperTriangular-serial.h"
+#include "../../src/solvers/upperTriangular-serial.h"
 
 #define SIZE 5
 

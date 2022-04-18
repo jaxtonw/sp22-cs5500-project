@@ -1,7 +1,5 @@
-// $ g++ testVectorLU.c++ lufact-serial.cpp ../generators/squareMatrices.cpp
-
-#include "luFact-serial.h"
-#include "../generators/squareMatrices.h"
+#include "../../src/lu/luFact-serial.h"
+#include "../../generators/squareMatrices.h"
 
 #define SIZE 8
 

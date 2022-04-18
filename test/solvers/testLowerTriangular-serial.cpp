@@ -1,4 +1,4 @@
-#include "lowerTriangular-serial.h"
+#include "../../src/solvers/lowerTriangular-serial.h"
 
 #define SIZE 5
 

@@ -1,5 +1,5 @@
-#include "squareMatrices.h"
-#include "vectors.h"
+#include "../../src/generators/squareMatrices.h"
+#include "../../src/generators/vectors.h"
 
 void printVector(std::vector<double> vec)
 {

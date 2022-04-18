@@ -1,4 +1,4 @@
-#include "matrixProd-serial.h"
+#include "../../src/matrix/matrixProd-serial.h"
 
 void printVector(std::vector<double> vec)
 {
