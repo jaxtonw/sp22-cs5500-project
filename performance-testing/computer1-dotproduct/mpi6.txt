@@ -1,0 +1,17 @@
+Computing dot product between vectors of size 4
+Done in 5.19753e-05 seconds.
+Computing dot product between vectors of size 15
+Done in 2.86102e-06 seconds.
+Computing dot product between vectors of size 0
+Done in 0 seconds.
+Computing dot product between vectors of size 50000000:
+Done in 0.0590739 seconds.
+Done in 0.050976  seconds.
+Done in 0.0565131 seconds.
+Done in 0.0585759 seconds.
+Done in 0.069519  seconds.
+Done in 0.0580771 seconds.
+Done in 0.053134  seconds.
+Done in 0.0396662 seconds.
+Done in 0.0474401 seconds.
+Done in 0.069833  seconds.
