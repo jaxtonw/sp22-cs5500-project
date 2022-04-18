@@ -1,5 +1,5 @@
-#ifndef VECTORLU_H
-#define VECTORLU_H
+#ifndef LUFACTSERIAL_H
+#define LUFACTSERIAL_H
 
 #include <vector>
 #include <math.h>
@@ -12,6 +12,6 @@ using MathVector = std::vector<double>;
 using Matrix = std::vector<MathVector>;
 using LUPair = std::pair<Matrix, Matrix>;
 
-LUPair vectorLU(Matrix matrixA);
+LUPair luFactorizationSerial(Matrix matrixA);
 
 #endif
