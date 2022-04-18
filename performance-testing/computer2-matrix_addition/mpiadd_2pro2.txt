@@ -1,0 +1,11 @@
+27
+24
+24
+26
+24
+27
+26
+25
+28
+24
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random subration 10 times, total time was: 255ms
