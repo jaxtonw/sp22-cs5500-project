@@ -1,0 +1,11 @@
+25
+25
+27
+24
+26
+25
+25
+24
+26
+25
+Matrix A: 2000 x 2000, matrix B: 2000 x 2000, random subtraction 10 times, total time was: 252ms
