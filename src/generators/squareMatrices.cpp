@@ -52,6 +52,24 @@ Matrix generateLowerTriangularMatrix(int n, double maxMagnitude) {
     return myMatrix;
 }
 
+Matrix generateUnitLowerTriangularMatrix(int n, double maxMagnitude) {
+    Matrix myMatrix(n);
+
+    std::random_device rd;
+    std::mt19937 engine(rd());
+
+    std::uniform_real_distribution<double> dist(-1 * maxMagnitude, maxMagnitude);
+
+    for (int i = 0; i < n; i++) {
+        myMatrix[i].resize(n);
+        for (int k = 0; k < i; k++)
+            myMatrix[i][k] = dist(engine);
+        myMatrix[i][i] = 1.0;
+    }
+
+    return myMatrix;
+}
+
 Matrix generateUpperTriangularMatrix(int n, double maxMagnitude) {
     Matrix myMatrix(n);
 
