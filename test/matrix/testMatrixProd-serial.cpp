@@ -1,20 +1,5 @@
 #include "../../src/matrix/matrixProd-serial.h"
-
-void printVector(std::vector<double> vec)
-{
-    std::cout << "[";
-    for (double item : vec)
-    {
-        std::cout << "  " << item;
-    }
-    std::cout << "]" << std::endl;
-}
-
-void printMatrix(Matrix a) {
-    for (auto v : a) {
-        printVector(v);
-    }
-}
+#include "../../src/common/helpers.h"
 
 int main() {
     Matrix a(5);

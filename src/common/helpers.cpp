@@ -20,6 +20,17 @@ void printVector(std::vector<double> vec)
     std::cout << "]" << std::endl;
 }
 
+void printMatrix(Matrix a) {
+    for (auto vec : a) {
+        std::cout << "[";
+        for (double item : vec)
+        {
+            std::cout << "  " << item;
+        }
+        std::cout << "]" << std::endl;
+    }
+}
+
 void printVectorHorizontal(double *vec, int size)
 {
     std::cout << "[";

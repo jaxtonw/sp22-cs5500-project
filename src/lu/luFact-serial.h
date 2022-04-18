@@ -8,8 +8,7 @@
 #include <utility>
 #include <algorithm>
 
-using MathVector = std::vector<double>;
-using Matrix = std::vector<MathVector>;
+#include "../common/types.h"
 using LUPair = std::pair<Matrix, Matrix>;
 
 LUPair luFactorizationSerial(Matrix matrixA);

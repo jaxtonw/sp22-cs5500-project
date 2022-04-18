@@ -6,8 +6,7 @@
 #include <iostream>
 #include <random>
 
-using MathVector = std::vector<double>;
-using Matrix = std::vector<MathVector>;
+#include "../common/types.h"
 
 MathVector generateRandomVector(int n, double maxMagnitude=1.0);
 

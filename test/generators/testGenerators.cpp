@@ -1,21 +1,7 @@
 #include "../../src/generators/squareMatrices.h"
 #include "../../src/generators/vectors.h"
+#include "../../src/common/helpers.h"
 
-void printVector(std::vector<double> vec)
-{
-    std::cout << "[";
-    for (double item : vec)
-    {
-        std::cout << "  " << item;
-    }
-    std::cout << "]" << std::endl;
-}
-
-void printMatrix(Matrix a) {
-    for (auto v : a) {
-        printVector(v);
-    }
-}
 
 int main() {
     Matrix a = generateRandomMatrix(5);

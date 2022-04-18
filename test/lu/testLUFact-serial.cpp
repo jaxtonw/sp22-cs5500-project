@@ -1,23 +1,8 @@
 #include "../../src/lu/luFact-serial.h"
-#include "../../generators/squareMatrices.h"
+#include "../../src/generators/squareMatrices.h"
+#include "../../src/common/helpers.h"
 
 #define SIZE 8
-
-void printVector(std::vector<double> vec)
-{
-    std::cout << "[";
-    for (double item : vec)
-    {
-        std::cout << "  " << item;
-    }
-    std::cout << "]" << std::endl;
-}
-
-void printMatrix(Matrix a) {
-    for (auto v : a) {
-        printVector(v);
-    }
-}
 
 Matrix serialSquareMatrixProduct(Matrix matrixA, Matrix matrixB) {
     // A and B must be same dimensions and both square
