@@ -1,4 +1,4 @@
-#include "upperTriangular-serial.h"
+#include "../../src/solvers/lowerTriangular-serial.h"
 
 #define SIZE 5
 
@@ -8,7 +8,7 @@ int main(int argc, char **argv) {
     for (int i = 0; i < SIZE; i++) {
         MathVector newVec(SIZE);
         for (int k = 0; k < SIZE; k++) { 
-            if (k >= i) 
+            if (k <= i) 
                 newVec[k] = 1;
             else
                 newVec[k] = 0;
@@ -21,7 +21,7 @@ int main(int argc, char **argv) {
         b[i] = i * i;
     }
 
-    MathVector sol = upperTriangularSolverSerial(A, b);
+    MathVector sol = lowerTriangularSolverSerial(A, b);
 
     for (int i = 0; i < sol.size(); i++) {
         std::cout << "sol[" << i << "] = " << sol[i] << std::endl;

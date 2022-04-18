@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <vector>
+#include "./types.h"
 
 /**
  * @brief A union used to bytewise convert a 
@@ -42,6 +43,14 @@ void printVector(std::vector<double> vec);
  * @return nothing
  */
 void printVector(double *vec, int size);
+
+/**
+ * Prints a matrix type
+ * 
+ * @param a Matrix to print
+ * @return nothing
+ */
+void printMatrix(Matrix a);
 
 /**
  * Prints a vector to standard out horizontally

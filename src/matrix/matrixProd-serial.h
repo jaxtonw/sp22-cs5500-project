@@ -7,9 +7,7 @@
 
 #include <vector>
 #include <iostream>
-
-using MathVector = std::vector<double>;
-using Matrix = std::vector<MathVector>;
+#include "../common/types.h"
 
 /**
  * Multiply matrix A by matrix B, and get a resulting matrix back
