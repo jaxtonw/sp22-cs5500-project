@@ -1,4 +1,4 @@
-#include "diagonalSolver-serial.h"
+#include "../../src/solvers/diagonalSolver-serial.h"
 
 #define SIZE 5
 
