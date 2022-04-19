@@ -78,35 +78,41 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="uniondbl_union.html">   21</a></span>&#160;<span class="keyword">union </span><a class="code" href="uniondbl_union.html">dblUnion</a></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">double</span> dbl;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    uint64_t uint64;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    int64_t int64;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    uint8_t uint8[<span class="keyword">sizeof</span>(double)];</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#a854211cce654ddd103e127287c2240fd">printVector</a>(std::vector&lt;double&gt; vec);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#a854211cce654ddd103e127287c2240fd">printVector</a>(<span class="keywordtype">double</span> *vec, <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#aa5001966da1ffc63eb4849d0bffa5d08">printVectorHorizontal</a>(<span class="keywordtype">double</span> *vec, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">./types.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="uniondbl_union.html">   22</a></span>&#160;<span class="keyword">union </span><a class="code" href="uniondbl_union.html">dblUnion</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">double</span> dbl;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    uint64_t uint64;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    int64_t int64;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    uint8_t uint8[<span class="keyword">sizeof</span>(double)];</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#a854211cce654ddd103e127287c2240fd">printVector</a>(std::vector&lt;double&gt; vec);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#a854211cce654ddd103e127287c2240fd">printVector</a>(<span class="keywordtype">double</span> *vec, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#aea15776a7a61d911ef2e770a9c98fefb">printMatrix</a>(<a class="code" href="types_8h.html#a11e51f74c15ccf2ed63555d82ffe87a4">Matrix</a> a);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#a6da68c3469a0db81063d60e51c6a4df6">printMatrix2D</a>(<span class="keywordtype">double</span> *matrix, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> n);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="helpers_8h.html#a58816314368da82a4508facf99248989">isPowerOfTwo</a>(<span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#aa5001966da1ffc63eb4849d0bffa5d08">printVectorHorizontal</a>(<span class="keywordtype">double</span> *vec, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#a6da68c3469a0db81063d60e51c6a4df6">printMatrix2D</a>(<span class="keywordtype">double</span> *matrix, <span class="keywordtype">int</span> m, <span class="keywordtype">int</span> n);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#aa78d4b38a52c95490d6d70ed8cf51a45">printDblUnion</a>(<a class="code" href="uniondbl_union.html">dblUnion</a> u);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="helpers_8h.html#a58816314368da82a4508facf99248989">isPowerOfTwo</a>(<span class="keywordtype">int</span> value);</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahelpers_8h_html_a58816314368da82a4508facf99248989"><div class="ttname"><a href="helpers_8h.html#a58816314368da82a4508facf99248989">isPowerOfTwo</a></div><div class="ttdeci">bool isPowerOfTwo(int value)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:64</div></div>
-<div class="ttc" id="ahelpers_8h_html_a6da68c3469a0db81063d60e51c6a4df6"><div class="ttname"><a href="helpers_8h.html#a6da68c3469a0db81063d60e51c6a4df6">printMatrix2D</a></div><div class="ttdeci">void printMatrix2D(double *matrix, int m, int n)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:33</div></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keywordtype">void</span> <a class="code" href="helpers_8h.html#aa78d4b38a52c95490d6d70ed8cf51a45">printDblUnion</a>(<a class="code" href="uniondbl_union.html">dblUnion</a> u);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ahelpers_8h_html_a58816314368da82a4508facf99248989"><div class="ttname"><a href="helpers_8h.html#a58816314368da82a4508facf99248989">isPowerOfTwo</a></div><div class="ttdeci">bool isPowerOfTwo(int value)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:75</div></div>
+<div class="ttc" id="ahelpers_8h_html_a6da68c3469a0db81063d60e51c6a4df6"><div class="ttname"><a href="helpers_8h.html#a6da68c3469a0db81063d60e51c6a4df6">printMatrix2D</a></div><div class="ttdeci">void printMatrix2D(double *matrix, int m, int n)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:44</div></div>
 <div class="ttc" id="ahelpers_8h_html_a854211cce654ddd103e127287c2240fd"><div class="ttname"><a href="helpers_8h.html#a854211cce654ddd103e127287c2240fd">printVector</a></div><div class="ttdeci">void printVector(std::vector&lt; double &gt; vec)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:13</div></div>
-<div class="ttc" id="ahelpers_8h_html_aa5001966da1ffc63eb4849d0bffa5d08"><div class="ttname"><a href="helpers_8h.html#aa5001966da1ffc63eb4849d0bffa5d08">printVectorHorizontal</a></div><div class="ttdeci">void printVectorHorizontal(double *vec, int size)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:23</div></div>
-<div class="ttc" id="ahelpers_8h_html_aa78d4b38a52c95490d6d70ed8cf51a45"><div class="ttname"><a href="helpers_8h.html#aa78d4b38a52c95490d6d70ed8cf51a45">printDblUnion</a></div><div class="ttdeci">void printDblUnion(dblUnion u)</div><div class="ttdoc">Prints the current value of a dblUnion as a double, uint64, int64, and uint8* of size 8.</div><div class="ttdef"><b>Definition:</b> helpers.cpp:47</div></div>
-<div class="ttc" id="auniondbl_union_html"><div class="ttname"><a href="uniondbl_union.html">dblUnion</a></div><div class="ttdoc">A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow f...</div><div class="ttdef"><b>Definition:</b> helpers.h:22</div></div>
+<div class="ttc" id="ahelpers_8h_html_aa5001966da1ffc63eb4849d0bffa5d08"><div class="ttname"><a href="helpers_8h.html#aa5001966da1ffc63eb4849d0bffa5d08">printVectorHorizontal</a></div><div class="ttdeci">void printVectorHorizontal(double *vec, int size)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:34</div></div>
+<div class="ttc" id="ahelpers_8h_html_aa78d4b38a52c95490d6d70ed8cf51a45"><div class="ttname"><a href="helpers_8h.html#aa78d4b38a52c95490d6d70ed8cf51a45">printDblUnion</a></div><div class="ttdeci">void printDblUnion(dblUnion u)</div><div class="ttdoc">Prints the current value of a dblUnion as a double, uint64, int64, and uint8* of size 8.</div><div class="ttdef"><b>Definition:</b> helpers.cpp:58</div></div>
+<div class="ttc" id="ahelpers_8h_html_aea15776a7a61d911ef2e770a9c98fefb"><div class="ttname"><a href="helpers_8h.html#aea15776a7a61d911ef2e770a9c98fefb">printMatrix</a></div><div class="ttdeci">void printMatrix(Matrix a)</div><div class="ttdef"><b>Definition:</b> helpers.cpp:23</div></div>
+<div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div><div class="ttdoc">Provides an interface for common types used in this library.</div></div>
+<div class="ttc" id="atypes_8h_html_a11e51f74c15ccf2ed63555d82ffe87a4"><div class="ttname"><a href="types_8h.html#a11e51f74c15ccf2ed63555d82ffe87a4">Matrix</a></div><div class="ttdeci">std::vector&lt; MathVector &gt; Matrix</div><div class="ttdoc">A Matrix is shorthand for a vector of MathVectors.</div><div class="ttdef"><b>Definition:</b> types.h:18</div></div>
+<div class="ttc" id="auniondbl_union_html"><div class="ttname"><a href="uniondbl_union.html">dblUnion</a></div><div class="ttdoc">A union used to bytewise convert a double/uint64/int64/uint8* back and forth. Used for MPI to allow f...</div><div class="ttdef"><b>Definition:</b> helpers.h:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
