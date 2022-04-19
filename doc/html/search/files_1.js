@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['helpers_2eh_40',['helpers.h',['../helpers_8h.html',1,'']]]
+  ['diagonalsolver_2dserial_2eh_63',['diagonalSolver-serial.h',['../diagonal_solver-serial_8h.html',1,'']]]
 ];
