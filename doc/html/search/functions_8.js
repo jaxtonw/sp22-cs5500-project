@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['vectorelementwiseproduct_65',['vectorElementwiseProduct',['../vector_2vector_prod_8h.html#a6cee916cbb5641d64a1aa2a36d1935bc',1,'elementwiseProd.cpp']]],
-  ['vectorproduct_66',['vectorProduct',['../matrix_2vector_prod_8h.html#a085f3a5b65ba4c33a80a48f37ed78862',1,'vectorProd.h']]],
-  ['vectorproductrowbyrow_67',['vectorProductRowByRow',['../matrix_2vector_prod_8h.html#aa2760cff6639b6ac4e4234c743e3f220',1,'vectorProd.cpp']]]
+  ['submatrices_102',['subMatrices',['../arithmetic_8h.html#a062f109ac2eeb6d8d88e07a1c6792cda',1,'subMatrices.cpp']]],
+  ['subscalarfrommatrix_103',['subScalarFromMatrix',['../arithmetic_8h.html#a5182beeb85577152b2405cd5c1140f47',1,'subScalarFromMatrix.cpp']]],
+  ['subscalarfromvector_104',['subScalarFromVector',['../arithmetic_8h.html#ab815345c12a50e3a631b28bfd98016aa',1,'subScalarFromVector.cpp']]],
+  ['subvectors_105',['subVectors',['../arithmetic_8h.html#aa82cdd3ce9c915fe3e0d165aa9881dfe',1,'subVectors.cpp']]]
 ];

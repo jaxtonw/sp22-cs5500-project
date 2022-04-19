@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['submatrices_60',['subMatrices',['../arithmetic_8h.html#a062f109ac2eeb6d8d88e07a1c6792cda',1,'subMatrices.cpp']]],
-  ['subscalarfrommatrix_61',['subScalarFromMatrix',['../arithmetic_8h.html#a5182beeb85577152b2405cd5c1140f47',1,'subScalarFromMatrix.cpp']]],
-  ['subscalarfromvector_62',['subScalarFromVector',['../arithmetic_8h.html#ab815345c12a50e3a631b28bfd98016aa',1,'subScalarFromVector.cpp']]],
-  ['subvectors_63',['subVectors',['../arithmetic_8h.html#aa82cdd3ce9c915fe3e0d165aa9881dfe',1,'subVectors.cpp']]]
+  ['matrixelementwiseprod_92',['matrixElementwiseProd',['../matrix_prod_8h.html#a4ba4d502264f65e759dcd87f187b728e',1,'elementwiseProd.cpp']]],
+  ['matrixproduct_93',['matrixProduct',['../matrix_prod_8h.html#a352ca95b8b7905a725b9594631fd2d8a',1,'matrixProd.cpp']]],
+  ['matrixproductrowbyrow_94',['matrixProductRowByRow',['../matrix_prod_8h.html#a61d5dfb9c2ae12e4601eff53ae9cd7df',1,'matrixProd.cpp']]],
+  ['matrixproductserial_95',['matrixProductSerial',['../matrix_prod-serial_8h.html#ad128f4e6b8b988bc2bb917a552987d7d',1,'matrixProd-serial.cpp']]]
 ];
