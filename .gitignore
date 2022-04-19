@@ -11,4 +11,4 @@ testbuild/
 testresult/
 temp/
 
-!SPLARF_2022.pdf
+!SPLARF*.pdf
