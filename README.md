@@ -7,9 +7,11 @@ This library provides Linear Algebra functions and routines performed both seria
 
 ## Sample File
 
-A sample of what our library can do is shown in [sample.cpp](sample.cpp). Here's an example for compiling and running the file:
+A small sample of what SPLARF can do is shown in [sample.cpp](sample.cpp). Here's an example for compiling and running the file:
 
 ```shell
+mpicxx sample.cpp ./src/common/*.cpp ./src/matrix/*.cpp;
+mpirun -np 4 $PWD/a.out;
 Matrix A is: 
 | 12 8 4 3 |
 | 3 17 14 7 |
