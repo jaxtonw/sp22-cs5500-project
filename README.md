@@ -5,6 +5,34 @@
 
 This library provides Linear Algebra functions and routines performed both serially and in parallel utilizing MPI. The goal is to provide a low-end static C++ library for high performance Linear Algebra operations, and study the benefits of parallelization.
 
+## Sample File
+
+A sample of what our library can do is shown in [sample.cpp](sample.cpp). Here's an example for compiling and running the file:
+
+```shell
+Matrix A is: 
+| 12 8 4 3 |
+| 3 17 14 7 |
+| 9 8 10 6 |
+| 4 9 5 11 |
+| 7 3 13 4 |
+| 3 9 5 14 |
+Matrix B is: 
+| 5 19 |
+| 6 15 |
+| 7 8 |
+| 3 9 |
+Matrix product is: 
+| 145 407 |
+| 236 487 |
+| 181 425 |
+| 142 350 |
+| 156 318 |
+| 146 358 |
+```
+
+For more examples, see the [files in the test](./test/) directory, which have direct examples and the correct results.
+
 ## Implemented Operations
 
 - Matrix

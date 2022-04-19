@@ -3,6 +3,7 @@
 *.aux
 *.pdf
 *.o
+*.zip
 
 .vscode
 
