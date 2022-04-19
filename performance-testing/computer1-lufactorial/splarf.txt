@@ -1,0 +1,11 @@
+starting lu factorial serial test for 2000x2000 matrix
+1718
+1706
+1717
+1708
+1790
+1903
+1671
+1732
+1662
+1701
